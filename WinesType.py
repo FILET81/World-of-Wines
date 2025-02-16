@@ -1,4 +1,5 @@
 def wine_variety_scrapping():
+    # Importing necessary libraries:
     import warnings
     warnings.filterwarnings("ignore")
     import numpy as np
@@ -6,8 +7,10 @@ def wine_variety_scrapping():
     import requests
     from bs4 import BeautifulSoup
 
+    # Defining iterable items to scrap the Wikipedia, for both red and white grapes varieties:
     wiki = ["until", "from"]
 
+    # Scrapping red grapes varieties: 
     pages_red = []
 
     for i in range(len(wiki)):
@@ -25,8 +28,10 @@ def wine_variety_scrapping():
             for i in j.find_all("li"):
                 varieties_red.append(i.get_text().title().replace("(Grape)","").replace("Grape","").replace("Mourvèdre","Mourvèdre/Monsatrell").replace("Durif","Petite Sirah/Durif").replace("Carignan","Carignan/Mazuelo").replace("Alicante Bouschet","Alicante Bouschet/Garnacha Tintorera").strip())
 
+    # Creating a DataFrame for red grapes varieties:
     wines_red = pd.DataFrame({"variety":varieties_red, "wine_type":"Red"})
 
+    # Scrapping white grapes varieties: 
     pages_white = []
 
     for i in range(len(wiki)):
@@ -42,16 +47,17 @@ def wine_variety_scrapping():
         pages_wiki_white.append(BeautifulSoup(pages_white[k], "html.parser"))
         for j in pages_wiki_white[k].find_all("div", class_="mw-category-group"):
             for i in j.find_all("li"):
-                varieties_white.append(i.get_text().title().replace("(Grape)","").replace("(Spanish Grape)","").replace("(Wine)","").replace("À","à").replace("Of","of").replace("Macabeo","Viura/Macabeo").replace("Prosecco","Glera/Prosecco").strip())
+                varieties_white.append(i.get_text().title().replace("(Grape)","").replace("(Spanish Grape)","").replace("(Wine)","").replace("À","à").replace("Of","of").replace("Macabeo","Viura/Macabeo").replace("Prosecco","Glera/Prosecco").replace("Sauvignonasse","Sauvignonasse/Friulano").strip())
 
+    # Creating a DataFrame for white grapes varieties:
     wines_white = pd.DataFrame({"variety":varieties_white, "wine_type":"White"})
 
+    # Defining and creating a DataFrame with 'extra' varieties, to be also considered in further steps of the project:
     data_extra = [{"variety":"Cabernet Sauvignon-Carménère", "wine_type":"Red"}, 
               {"variety":"Cabernet Sauvignon-Malbec", "wine_type":"Red"}, 
               {"variety":"Cabernet Sauvignon-Merlot", "wine_type":"Red"}, 
               {"variety":"Cabernet Sauvignon-Syrah", "wine_type":"Red"},
               {"variety":"Cabernet Sauvignon-Tempranillo", "wine_type":"Red"},
-              {"variety":"Friulano", "wine_type":"White"},
               {"variety":"Malbec-Merlot", "wine_type":"Red"},
               {"variety":"Port", "wine_type":"Red"},
               {"variety":"Red Blend", "wine_type":"Red"},
@@ -67,5 +73,6 @@ def wine_variety_scrapping():
 
     wines_extra = pd.DataFrame(data_extra)
 
+    # Putting all DataFrames together, in a single one:
     wines_type = pd.concat([wines_red, wines_white, wines_extra], axis=0, ignore_index=True)
     return wines_type
