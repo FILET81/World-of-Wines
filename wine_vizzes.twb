@@ -1,0 +1,1012 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.25.0114.1153                               -->
+<workbook original-version='18.1' source-build='2024.3.3 (20243.25.0114.1153)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='wines_final' inline='true' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='wines_final' name='textscan.0efwkeh1iy61wj1azsciz1rmujz8'>
+            <connection class='textscan' directory='C:/Users/MIQUEL/Desktop/IRONHACK/Ironhack_Projects/World-of-Wines' filename='wines_final.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0efwkeh1iy61wj1azsciz1rmujz8' name='wines_final.csv' table='[wines_final#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='string' name='country' ordinal='1' />
+            <column datatype='integer' name='points' ordinal='2' />
+            <column datatype='real' name='price_usd' ordinal='3' />
+            <column datatype='string' name='apellation' ordinal='4' />
+            <column datatype='string' name='taster_name' ordinal='5' />
+            <column datatype='string' name='taster_twitter_handle' ordinal='6' />
+            <column datatype='string' name='title' ordinal='7' />
+            <column datatype='string' name='variety' ordinal='8' />
+            <column datatype='string' name='winery' ordinal='9' />
+            <column datatype='string' name='wine_type' ordinal='10' />
+            <column datatype='boolean' name='noble_international' ordinal='11' />
+            <column datatype='boolean' name='monovarietal' ordinal='12' />
+            <column datatype='real' name='avg_abv_%' ordinal='13' />
+            <column datatype='real' name='avg_serve_temp_c' ordinal='14' />
+            <column datatype='integer' name='taste_dry-sweet' ordinal='15' />
+            <column datatype='integer' name='taste_body' ordinal='16' />
+            <column datatype='integer' name='taste_tannins' ordinal='17' />
+            <column datatype='integer' name='taste_acidity' ordinal='18' />
+            <column datatype='integer' name='taste_alcohol' ordinal='19' />
+            <column datatype='string' name='primary_flavors' ordinal='20' />
+            <column datatype='integer' date-parse-format='yyyy' name='vintage' ordinal='21' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>points</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[points]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>points</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_usd</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_usd]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>price_usd</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>apellation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[apellation]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>apellation</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taster_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[taster_name]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taster_name</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taster_twitter_handle</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[taster_twitter_handle]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taster_twitter_handle</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>title</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>variety</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[variety]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>variety</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>winery</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[winery]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>winery</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>wine_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[wine_type]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>wine_type</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>noble_international</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[noble_international]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>noble_international</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monovarietal</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[monovarietal]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>monovarietal</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_abv_%</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_abv_%]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>avg_abv_%</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_serve_temp_c</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_serve_temp_c]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>avg_serve_temp_c</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_dry-sweet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_dry-sweet]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_dry-sweet</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_body</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_body]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_body</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_tannins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_tannins]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_tannins</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_acidity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_acidity]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_acidity</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_alcohol</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_alcohol]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_alcohol</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>primary_flavors</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[primary_flavors]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>primary_flavors</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vintage</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[vintage]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>vintage</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column caption='wines_final.csv' datatype='table' name='[__tableau_internal_object_id__].[wines_final.csv_622FB97D19BE433DA963721909BB4269]' role='measure' type='quantitative' />
+      <column caption='Apellation' datatype='string' name='[apellation]' role='dimension' type='nominal' />
+      <column caption='Avg Abv %' datatype='real' name='[avg_abv_%]' role='dimension' type='ordinal' />
+      <column caption='Avg Serve Temp C' datatype='real' name='[avg_serve_temp_c]' role='dimension' type='ordinal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Monovarietal' datatype='boolean' name='[monovarietal]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='false' value='Non-Monovarietal' />
+          <alias key='true' value='Monovarietal' />
+        </aliases>
+      </column>
+      <column caption='Noble International' datatype='boolean' name='[noble_international]' role='dimension' type='nominal' />
+      <column caption='Points' datatype='integer' name='[points]' role='measure' type='quantitative' />
+      <column caption='Price Usd' datatype='real' name='[price_usd]' role='dimension' type='ordinal' />
+      <column caption='Primary Flavors' datatype='string' name='[primary_flavors]' role='dimension' type='nominal' />
+      <column caption='Taste Acidity' datatype='integer' name='[taste_acidity]' role='measure' type='quantitative' />
+      <column caption='Taste Alcohol' datatype='integer' name='[taste_alcohol]' role='measure' type='quantitative' />
+      <column caption='Taste Body' datatype='integer' name='[taste_body]' role='measure' type='quantitative' />
+      <column caption='Taste Dry-Sweet' datatype='integer' name='[taste_dry-sweet]' role='measure' type='quantitative' />
+      <column caption='Taste Tannins' datatype='integer' name='[taste_tannins]' role='measure' type='quantitative' />
+      <column caption='Taster Name' datatype='string' name='[taster_name]' role='dimension' type='nominal' />
+      <column caption='Taster Twitter Handle' datatype='string' name='[taster_twitter_handle]' role='dimension' type='nominal' />
+      <column caption='Title' datatype='string' name='[title]' role='dimension' type='nominal' />
+      <column caption='Variety' datatype='string' name='[variety]' role='dimension' type='nominal' />
+      <column caption='Vintage' datatype='integer' name='[vintage]' role='dimension' type='quantitative' />
+      <column caption='Wine Type' datatype='string' name='[wine_type]' role='dimension' type='nominal' />
+      <column caption='Winery' datatype='string' name='[winery]' role='dimension' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/MIQUEL/AppData/Local/Temp/TableauTemp/#TableauTemp_0f3vb490x61ycf19sow5x05kzc7g.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/23/2025 05:55:48 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>0</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>points</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[points]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>points</remote-alias>
+              <ordinal>1</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price_usd</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[price_usd]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>price_usd</remote-alias>
+              <ordinal>2</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>293</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>apellation</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[apellation]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>apellation</remote-alias>
+              <ordinal>3</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>280</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taster_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[taster_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taster_name</remote-alias>
+              <ordinal>4</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taster_twitter_handle</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[taster_twitter_handle]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taster_twitter_handle</remote-alias>
+              <ordinal>5</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>title</remote-alias>
+              <ordinal>6</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>109871</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>variety</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[variety]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>variety</remote-alias>
+              <ordinal>7</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>283</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>winery</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[winery]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>winery</remote-alias>
+              <ordinal>8</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15999</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>wine_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[wine_type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>wine_type</remote-alias>
+              <ordinal>9</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>noble_international</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[noble_international]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>noble_international</remote-alias>
+              <ordinal>10</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>monovarietal</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[monovarietal]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>monovarietal</remote-alias>
+              <ordinal>11</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_abv_%</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_abv_%]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_abv_%</remote-alias>
+              <ordinal>12</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_serve_temp_c</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_serve_temp_c]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_serve_temp_c</remote-alias>
+              <ordinal>13</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_dry-sweet</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_dry-sweet]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_dry-sweet</remote-alias>
+              <ordinal>14</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_body</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_body]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_body</remote-alias>
+              <ordinal>15</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_tannins</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_tannins]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_tannins</remote-alias>
+              <ordinal>16</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_acidity</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_acidity]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_acidity</remote-alias>
+              <ordinal>17</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_alcohol</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_alcohol]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_alcohol</remote-alias>
+              <ordinal>18</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>primary_flavors</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[primary_flavors]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>primary_flavors</remote-alias>
+              <ordinal>19</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>283</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>vintage</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[vintage]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>vintage</remote-alias>
+              <ordinal>20</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='wines_final.csv' id='wines_final.csv_622FB97D19BE433DA963721909BB4269'>
+            <properties context=''>
+              <relation connection='textscan.0efwkeh1iy61wj1azsciz1rmujz8' name='wines_final.csv' table='[wines_final#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='string' name='country' ordinal='1' />
+                  <column datatype='integer' name='points' ordinal='2' />
+                  <column datatype='real' name='price_usd' ordinal='3' />
+                  <column datatype='string' name='apellation' ordinal='4' />
+                  <column datatype='string' name='taster_name' ordinal='5' />
+                  <column datatype='string' name='taster_twitter_handle' ordinal='6' />
+                  <column datatype='string' name='title' ordinal='7' />
+                  <column datatype='string' name='variety' ordinal='8' />
+                  <column datatype='string' name='winery' ordinal='9' />
+                  <column datatype='string' name='wine_type' ordinal='10' />
+                  <column datatype='boolean' name='noble_international' ordinal='11' />
+                  <column datatype='boolean' name='monovarietal' ordinal='12' />
+                  <column datatype='real' name='avg_abv_%' ordinal='13' />
+                  <column datatype='real' name='avg_serve_temp_c' ordinal='14' />
+                  <column datatype='integer' name='taste_dry-sweet' ordinal='15' />
+                  <column datatype='integer' name='taste_body' ordinal='16' />
+                  <column datatype='integer' name='taste_tannins' ordinal='17' />
+                  <column datatype='integer' name='taste_acidity' ordinal='18' />
+                  <column datatype='integer' name='taste_alcohol' ordinal='19' />
+                  <column datatype='string' name='primary_flavors' ordinal='20' />
+                  <column datatype='integer' date-parse-format='yyyy' name='vintage' ordinal='21' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wines_final' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' />
+          </datasources>
+          <datasource-dependencies datasource='federated.110ix6e1ua80gf1ejrtv51wms3xe'>
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[variety]' derivation='CountD' name='[ctd:variety:qk]' pivot='key' type='quantitative' />
+            <column caption='Monovarietal' datatype='boolean' name='[monovarietal]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='false' value='Non-Monovarietal' />
+                <alias key='true' value='Monovarietal' />
+              </aliases>
+            </column>
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[monovarietal]' derivation='None' name='[none:monovarietal:nk]' pivot='key' type='nominal' />
+            <column caption='Variety' datatype='string' name='[variety]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>true</bucket>
+              <bucket>false</bucket>
+            </dictionary>
+          </manual-sort>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]' shelf='rows'>
+              <sort-filter-info>
+                <sort-filter level-name='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' member-value='true' />
+              </sort-filter-info>
+            </shelf-sort-v2>
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]' scope='cols' value='Count of Varieties' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' value='101' />
+            <format attr='height' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' value='35' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='in-tooltip' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Country:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Count of Varieties:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]</rows>
+        <cols>([federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk] * [federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk])</cols>
+      </table>
+      <simple-id uuid='{73D3BCB4-AEE4-4B8D-9B83-2DF90ED10410}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='38'>
+            <card type='columns' />
+          </strip>
+          <strip size='38'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]</field>
+            <field>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]</field>
+            <field>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:variety:nk]</field>
+            <field>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:wine_type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A460FBC6-5D14-4495-8AE7-BBA2A8779DB4}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      dgAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>

@@ -1,0 +1,1001 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.25.0114.1153                               -->
+<workbook original-version='18.1' source-build='2024.3.3 (20243.25.0114.1153)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='wines_final' inline='true' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='wines_final' name='textscan.0efwkeh1iy61wj1azsciz1rmujz8'>
+            <connection class='textscan' directory='C:/Users/MIQUEL/Desktop/IRONHACK/Ironhack_Projects/World-of-Wines' filename='wines_final.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0efwkeh1iy61wj1azsciz1rmujz8' name='wines_final.csv' table='[wines_final#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='string' name='country' ordinal='1' />
+            <column datatype='integer' name='points' ordinal='2' />
+            <column datatype='real' name='price_usd' ordinal='3' />
+            <column datatype='string' name='apellation' ordinal='4' />
+            <column datatype='string' name='taster_name' ordinal='5' />
+            <column datatype='string' name='taster_twitter_handle' ordinal='6' />
+            <column datatype='string' name='title' ordinal='7' />
+            <column datatype='string' name='variety' ordinal='8' />
+            <column datatype='string' name='winery' ordinal='9' />
+            <column datatype='string' name='wine_type' ordinal='10' />
+            <column datatype='boolean' name='noble_international' ordinal='11' />
+            <column datatype='boolean' name='monovarietal' ordinal='12' />
+            <column datatype='real' name='avg_abv_%' ordinal='13' />
+            <column datatype='real' name='avg_serve_temp_c' ordinal='14' />
+            <column datatype='integer' name='taste_dry-sweet' ordinal='15' />
+            <column datatype='integer' name='taste_body' ordinal='16' />
+            <column datatype='integer' name='taste_tannins' ordinal='17' />
+            <column datatype='integer' name='taste_acidity' ordinal='18' />
+            <column datatype='integer' name='taste_alcohol' ordinal='19' />
+            <column datatype='string' name='primary_flavors' ordinal='20' />
+            <column datatype='integer' date-parse-format='yyyy' name='vintage' ordinal='21' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>points</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[points]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>points</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_usd</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_usd]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>price_usd</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>apellation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[apellation]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>apellation</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taster_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[taster_name]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taster_name</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taster_twitter_handle</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[taster_twitter_handle]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taster_twitter_handle</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>title</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>variety</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[variety]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>variety</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>winery</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[winery]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>winery</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>wine_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[wine_type]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>wine_type</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>noble_international</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[noble_international]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>noble_international</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monovarietal</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[monovarietal]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>monovarietal</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_abv_%</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_abv_%]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>avg_abv_%</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_serve_temp_c</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_serve_temp_c]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>avg_serve_temp_c</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_dry-sweet</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_dry-sweet]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_dry-sweet</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_body</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_body]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_body</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_tannins</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_tannins]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_tannins</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_acidity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_acidity]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_acidity</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>taste_alcohol</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[taste_alcohol]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>taste_alcohol</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>primary_flavors</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[primary_flavors]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>primary_flavors</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vintage</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[vintage]</local-name>
+            <parent-name>[wines_final.csv]</parent-name>
+            <remote-alias>vintage</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Wine Quality' datatype='string' name='[Calculation_1194579851484745730]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [points] &gt;= 98 THEN &quot;1. Masterpiece (100-98)&quot;&#13;&#10;ELSEIF [points] &gt;= 94 THEN &quot;2. Superb&quot;&#13;&#10;ELSEIF [points] &gt;= 90 THEN &quot;3. Excellent&quot;&#13;&#10;ELSEIF [points] &gt;= 87 THEN &quot;4. Very Good&quot;&#13;&#10;ELSEIF [points] &gt;= 83 THEN &quot;5. Good&quot;&#13;&#10;ELSE &quot;6. Acceptable&quot;&#13;&#10;END' />
+      </column>
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column caption='wines_final.csv' datatype='table' name='[__tableau_internal_object_id__].[wines_final.csv_622FB97D19BE433DA963721909BB4269]' role='measure' type='quantitative' />
+      <column caption='Apellation' datatype='string' name='[apellation]' role='dimension' type='nominal' />
+      <column caption='Avg Abv %' datatype='real' name='[avg_abv_%]' role='dimension' type='ordinal' />
+      <column caption='Avg Serve Temp C' datatype='real' name='[avg_serve_temp_c]' role='dimension' type='ordinal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Monovarietal' datatype='boolean' name='[monovarietal]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='false' value='Non-Monovarietal' />
+          <alias key='true' value='Monovarietal' />
+        </aliases>
+      </column>
+      <column caption='Noble International' datatype='boolean' name='[noble_international]' role='dimension' type='nominal' />
+      <column caption='Points' datatype='integer' name='[points]' role='measure' type='quantitative' />
+      <column caption='Price Usd' datatype='real' name='[price_usd]' role='dimension' type='ordinal' />
+      <column caption='Primary Flavors' datatype='string' name='[primary_flavors]' role='dimension' type='nominal' />
+      <column caption='Taste Acidity' datatype='integer' name='[taste_acidity]' role='measure' type='quantitative' />
+      <column caption='Taste Alcohol' datatype='integer' name='[taste_alcohol]' role='measure' type='quantitative' />
+      <column caption='Taste Body' datatype='integer' name='[taste_body]' role='measure' type='quantitative' />
+      <column caption='Taste Dry-Sweet' datatype='integer' name='[taste_dry-sweet]' role='measure' type='quantitative' />
+      <column caption='Taste Tannins' datatype='integer' name='[taste_tannins]' role='measure' type='quantitative' />
+      <column caption='Taster Name' datatype='string' name='[taster_name]' role='dimension' type='nominal' />
+      <column caption='Taster Twitter Handle' datatype='string' name='[taster_twitter_handle]' role='dimension' type='nominal' />
+      <column caption='Title' datatype='string' name='[title]' role='dimension' type='nominal' />
+      <column caption='Variety' datatype='string' name='[variety]' role='dimension' type='nominal' />
+      <column caption='Vintage' datatype='integer' name='[vintage]' role='dimension' type='quantitative' />
+      <column caption='Wine Type' datatype='string' name='[wine_type]' role='dimension' type='nominal' />
+      <column caption='Winery' datatype='string' name='[winery]' role='dimension' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/MIQUEL/AppData/Local/Temp/TableauTemp/#TableauTemp_0f3vb490x61ycf19sow5x05kzc7g.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/23/2025 05:55:48 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>0</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>points</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[points]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>points</remote-alias>
+              <ordinal>1</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price_usd</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[price_usd]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>price_usd</remote-alias>
+              <ordinal>2</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>293</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>apellation</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[apellation]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>apellation</remote-alias>
+              <ordinal>3</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>280</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taster_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[taster_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taster_name</remote-alias>
+              <ordinal>4</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taster_twitter_handle</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[taster_twitter_handle]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taster_twitter_handle</remote-alias>
+              <ordinal>5</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>title</remote-alias>
+              <ordinal>6</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>109871</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>variety</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[variety]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>variety</remote-alias>
+              <ordinal>7</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>283</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>winery</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[winery]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>winery</remote-alias>
+              <ordinal>8</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15999</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>wine_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[wine_type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>wine_type</remote-alias>
+              <ordinal>9</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>noble_international</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[noble_international]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>noble_international</remote-alias>
+              <ordinal>10</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>monovarietal</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[monovarietal]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>monovarietal</remote-alias>
+              <ordinal>11</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_abv_%</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_abv_%]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_abv_%</remote-alias>
+              <ordinal>12</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_serve_temp_c</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_serve_temp_c]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_serve_temp_c</remote-alias>
+              <ordinal>13</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_dry-sweet</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_dry-sweet]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_dry-sweet</remote-alias>
+              <ordinal>14</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_body</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_body]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_body</remote-alias>
+              <ordinal>15</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_tannins</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_tannins]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_tannins</remote-alias>
+              <ordinal>16</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_acidity</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_acidity]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_acidity</remote-alias>
+              <ordinal>17</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>taste_alcohol</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[taste_alcohol]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>taste_alcohol</remote-alias>
+              <ordinal>18</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>primary_flavors</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[primary_flavors]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>primary_flavors</remote-alias>
+              <ordinal>19</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>283</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>vintage</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[vintage]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>vintage</remote-alias>
+              <ordinal>20</ordinal>
+              <family>wines_final.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wines_final.csv_622FB97D19BE433DA963721909BB4269]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='wines_final.csv' id='wines_final.csv_622FB97D19BE433DA963721909BB4269'>
+            <properties context=''>
+              <relation connection='textscan.0efwkeh1iy61wj1azsciz1rmujz8' name='wines_final.csv' table='[wines_final#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='string' name='country' ordinal='1' />
+                  <column datatype='integer' name='points' ordinal='2' />
+                  <column datatype='real' name='price_usd' ordinal='3' />
+                  <column datatype='string' name='apellation' ordinal='4' />
+                  <column datatype='string' name='taster_name' ordinal='5' />
+                  <column datatype='string' name='taster_twitter_handle' ordinal='6' />
+                  <column datatype='string' name='title' ordinal='7' />
+                  <column datatype='string' name='variety' ordinal='8' />
+                  <column datatype='string' name='winery' ordinal='9' />
+                  <column datatype='string' name='wine_type' ordinal='10' />
+                  <column datatype='boolean' name='noble_international' ordinal='11' />
+                  <column datatype='boolean' name='monovarietal' ordinal='12' />
+                  <column datatype='real' name='avg_abv_%' ordinal='13' />
+                  <column datatype='real' name='avg_serve_temp_c' ordinal='14' />
+                  <column datatype='integer' name='taste_dry-sweet' ordinal='15' />
+                  <column datatype='integer' name='taste_body' ordinal='16' />
+                  <column datatype='integer' name='taste_tannins' ordinal='17' />
+                  <column datatype='integer' name='taste_acidity' ordinal='18' />
+                  <column datatype='integer' name='taste_alcohol' ordinal='19' />
+                  <column datatype='string' name='primary_flavors' ordinal='20' />
+                  <column datatype='integer' date-parse-format='yyyy' name='vintage' ordinal='21' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wines_final' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' />
+          </datasources>
+          <datasource-dependencies datasource='federated.110ix6e1ua80gf1ejrtv51wms3xe'>
+            <column-instance column='[points]' derivation='Avg' name='[avg:points:qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[vintage]' derivation='None' name='[none:vintage:qk]' pivot='key' type='quantitative' />
+            <column caption='Points' datatype='integer' name='[points]' role='measure' type='quantitative' />
+            <column caption='Vintage' datatype='integer' name='[vintage]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:vintage:qk]' included-values='in-range'>
+            <min>2000</min>
+            <max>2016</max>
+          </filter>
+          <slices>
+            <column>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:vintage:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[avg:points:qk]' field-type='quantitative' max='100.0' min='80.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[avg:points:qk]' scope='rows' value='' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' value='63' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[avg:points:qk]</rows>
+        <cols>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:vintage:qk]</cols>
+      </table>
+      <simple-id uuid='{068D1261-A090-4BA1-AB6A-3157C3254866}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wines_final' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' />
+          </datasources>
+          <datasource-dependencies datasource='federated.110ix6e1ua80gf1ejrtv51wms3xe'>
+            <column caption='Wine Quality' datatype='string' name='[Calculation_1194579851484745730]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [points] &gt;= 98 THEN &quot;1. Masterpiece (100-98)&quot;&#13;&#10;ELSEIF [points] &gt;= 94 THEN &quot;2. Superb&quot;&#13;&#10;ELSEIF [points] &gt;= 90 THEN &quot;3. Excellent&quot;&#13;&#10;ELSEIF [points] &gt;= 87 THEN &quot;4. Very Good&quot;&#13;&#10;ELSEIF [points] &gt;= 83 THEN &quot;5. Good&quot;&#13;&#10;ELSE &quot;6. Acceptable&quot;&#13;&#10;END' />
+            </column>
+            <column-instance column='[points]' derivation='Count' name='[cnt:points:qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1194579851484745730]' derivation='None' name='[none:Calculation_1194579851484745730:nk]' pivot='key' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column caption='Points' datatype='integer' name='[points]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='width' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[cnt:points:qk]' value='74' />
+            <format attr='title' class='0' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[cnt:points:qk]' scope='cols' value='' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' value='77' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]</rows>
+        <cols>([federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:Calculation_1194579851484745730:nk] * [federated.110ix6e1ua80gf1ejrtv51wms3xe].[cnt:points:qk])</cols>
+      </table>
+      <simple-id uuid='{098700A9-F51F-4FB3-9F29-F5A8FB7C6961}' />
+    </worksheet>
+    <worksheet name='Varieties by Country'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#1b1b1b'>Number of Varieties by Country</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wines_final' name='federated.110ix6e1ua80gf1ejrtv51wms3xe' />
+          </datasources>
+          <datasource-dependencies datasource='federated.110ix6e1ua80gf1ejrtv51wms3xe'>
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[variety]' derivation='CountD' name='[ctd:variety:qk]' pivot='key' type='quantitative' />
+            <column caption='Monovarietal' datatype='boolean' name='[monovarietal]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='false' value='Non-Monovarietal' />
+                <alias key='true' value='Monovarietal' />
+              </aliases>
+            </column>
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[monovarietal]' derivation='None' name='[none:monovarietal:nk]' pivot='key' type='nominal' />
+            <column caption='Variety' datatype='string' name='[variety]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>true</bucket>
+              <bucket>false</bucket>
+            </dictionary>
+          </manual-sort>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]' shelf='rows'>
+              <sort-filter-info>
+                <sort-filter level-name='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' member-value='true' />
+              </sort-filter-info>
+            </shelf-sort-v2>
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]' scope='cols' value='Count of Varieties' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' value='101' />
+            <format attr='height' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' value='35' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='in-tooltip' field='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Country:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Count of Varieties:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]</rows>
+        <cols>([federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:monovarietal:nk] * [federated.110ix6e1ua80gf1ejrtv51wms3xe].[ctd:variety:qk])</cols>
+      </table>
+      <simple-id uuid='{73D3BCB4-AEE4-4B8D-9B83-2DF90ED10410}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Varieties by Country'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='38'>
+            <card type='columns' />
+          </strip>
+          <strip size='38'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A460FBC6-5D14-4495-8AE7-BBA2A8779DB4}' />
+    </window>
+    <window class='worksheet' name='Sheet 2' tab-color='#f66273'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.110ix6e1ua80gf1ejrtv51wms3xe].[none:country:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{07907651-96C7-4F1E-BF03-45960A0AB126}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{43036EFF-F388-4C45-B92A-D1D993B6BA97}' />
+    </window>
+  </windows>
+</workbook>

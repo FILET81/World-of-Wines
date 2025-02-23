@@ -26,7 +26,7 @@ def wine_variety_scrapping():
         pages_wiki_red.append(BeautifulSoup(pages_red[k], "html.parser"))
         for j in pages_wiki_red[k].find_all("div", class_="mw-category-group"):
             for i in j.find_all("li"):
-                varieties_red.append(i.get_text().title().replace("(Grape)","").replace("Grape","").replace("Mourvèdre","Mourvèdre/Monsatrell").replace("Durif","Petite Sirah/Durif").replace("Carignan","Carignan/Mazuelo").replace("Alicante Bouschet","Alicante Bouschet/Garnacha Tintorera").strip())
+                varieties_red.append(i.get_text().title().replace("(Grape)","").replace("Grape","").replace("Mourvèdre","Mourvèdre/Monastrell").replace("Durif","Petite Sirah/Durif").replace("Carignan","Carignan/Mazuelo").replace("Alicante Bouschet","Alicante Bouschet/Garnacha Tintorera").strip())
 
     # Creating a DataFrame for red grapes varieties:
     wines_red = pd.DataFrame({"variety":varieties_red, "wine_type":"Red"})
@@ -54,22 +54,27 @@ def wine_variety_scrapping():
 
     # Defining and creating a DataFrame with 'extra' varieties, to be also considered in further steps of the project:
     data_extra = [{"variety":"Cabernet Sauvignon-Carménère", "wine_type":"Red"}, 
-              {"variety":"Cabernet Sauvignon-Malbec", "wine_type":"Red"}, 
-              {"variety":"Cabernet Sauvignon-Merlot", "wine_type":"Red"}, 
-              {"variety":"Cabernet Sauvignon-Syrah", "wine_type":"Red"},
-              {"variety":"Cabernet Sauvignon-Tempranillo", "wine_type":"Red"},
-              {"variety":"Malbec-Merlot", "wine_type":"Red"},
-              {"variety":"Port", "wine_type":"Red"},
-              {"variety":"Red Blend", "wine_type":"Red"},
-              {"variety":"Rosé", "wine_type":"Rosé"},
-              {"variety":"Sauvignon Blanc-Sémillon", "wine_type":"White"},
-              {"variety":"Sherry", "wine_type":"White"},
-              {"variety":"Sparkling Blend", "wine_type":"Sparkling"},
-              {"variety":"Syrah-Grenache", "wine_type":"Red"},
-              {"variety":"Tinta De Toro", "wine_type":"Red"},
-              {"variety":"Tinto Fino", "wine_type":"Red"},
-              {"variety":"Turbiana", "wine_type":"White"},
-              {"variety":"White Blend", "wine_type":"White"}]
+                  {"variety":"Cabernet Sauvignon-Malbec", "wine_type":"Red"}, 
+                  {"variety":"Cabernet Sauvignon-Merlot", "wine_type":"Red"}, 
+                  {"variety":"Cabernet Sauvignon-Syrah", "wine_type":"Red"},
+                  {"variety":"Cabernet Sauvignon-Tempranillo", "wine_type":"Red"},
+                  {"variety":"Malbec-Merlot", "wine_type":"Red"},
+                  {"variety":"Port", "wine_type":"Red"},
+                  {"variety":"Red Blend", "wine_type":"Red"},
+                  {"variety":"Rosé", "wine_type":"Rosé"},
+                  {"variety":"Sauvignon Blanc-Sémillon", "wine_type":"White"},
+                  {"variety":"Sherry", "wine_type":"White"},
+                  {"variety":"Sparkling Blend", "wine_type":"Sparkling"},
+                  {"variety":"Syrah-Grenache", "wine_type":"Red"},
+                  {"variety":"Tinta De Toro", "wine_type":"Red"},
+                  {"variety":"Tinto Fino", "wine_type":"Red"},
+                  {"variety":"Turbiana", "wine_type":"White"},
+                  {"variety":"White Blend", "wine_type":"White"},
+                  {"variety":"Pinot Noir-Chardonnay-Pinot Meunier", "wine_type":"Sparkling"},     # Champagne Blend       
+                  {"variety":"Cabernet Sauvignon-Merlot-Other Bordeaux", "wine_type":"Red"},     # Bordeaux-style Red Blend
+                  {"variety":"Sauvignon Blanc-Sémillon-Other Bordeaux", "wine_type":"White"},     # Bordeaux-style White Blend
+                  {"variety":"Grenache-Syrah-Mourvèdre/Monastrell", "wine_type":"Red"},     # Rhône-style Red Blend + G-S-M
+                  {"variety":"Marsanne-Roussane-Viognier", "wine_type":"White"}]     # Rhône-style White Blend
 
     wines_extra = pd.DataFrame(data_extra)
 
