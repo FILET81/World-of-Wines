@@ -23,7 +23,11 @@ if selection=="Introduction":     # Providing some info about the world of wines
     st.markdown("- The **ABV** -*Alcohol by Volume*- of **regular wine** goes from **5%** to **16%**.")
     st.markdown("- There are currently over **10.000 different wine grape -*Vitis Vinifera*- varieties** worldwide.")
     st.markdown("- Best grape's **growing regions** for wine production are placed in **latitudes** between **30°** and **50°** of both hemispheres.")
-    st.image("Images\Best Regions for Grape Growing.jpg", caption="The Wine Belt", width=650)
+    st.image("Images\Best Regions for Grape Growing.jpg", caption="The Wine Belt", width=950)
+    st.markdown("- There are **18 noble grapes' varieties** -> '*planted **across the Globe**, and producing **high-quality** wines'*:")
+    st.markdown("**Red** (lightest to darkest) -> ***Pinot Noir***, *Grenache*, ***Merlot***, *Sangiovese*, *Nebbiolo*, *Tempranillo*, ***Cabernet Sauvignon***, ***Syrah*** and *Malbec*.")
+    st.markdown("**White** (lightest to richest) -> *Pinot Gris*, ***Riesling***, ***Sauvignon Blanc***, *Chenin Blanc*, *Moscato*, *Gewürztraminer*, *Sémillon*, *Viognier* and ***Chardonnay***.")
+    #st.image("Images\Noble Varieties.jpg", caption="Noble Varieties", width=650)
 
 elif selection=="Vizzes":     # Embedding "Tableau Public" vizzes
     st.header("Let's play a bit with the data! :grapes:")
