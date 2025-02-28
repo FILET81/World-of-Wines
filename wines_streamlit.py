@@ -57,35 +57,103 @@ elif selection=="Wine Searcher":     # Displaying the wine Searcher out of the t
         w_monovarietal = ["yes", "no"]     # Boolean values!!!
         w_noble = ["yes", "no"]     # Boolean values!!!
         w_vintage = sorted(wines_dataset["vintage"].unique().tolist(), reverse=True)
-        w_min_price, w_max_price = wines_dataset["price_usd"].min(), wines_dataset["price_usd"].max()
+        #w_min_price, w_max_price = wines_dataset["price_usd"].min(), wines_dataset["price_usd"].max()
 
         # Coding Streamlit:
         st.header("Let's look for a tasty wine! :face_with_monocle:")
         st.image("Images\Vineyards-6.jpg", caption="Vineyards somewhere in the World", width=950) 
 
-        selected_country = st.selectbox("Please choose a country from the list:", w_country)
-        selected_type = st.multiselect("What type of wine would you like to find?", w_type)
-        selected_monovarietal = st.radio("Would you like a monovarietal wine?", w_monovarietal) == "yes"     # "== "yes"" avoids empty DataFrame in case user doesn't select
-        selected_noble = st.radio("Would you like a noble grape variety?", w_noble) == "yes"     # "== "yes"" avoids empty DataFrame in case user doesn't select
-        selected_vintage = st.multiselect("Please choose a vintage from the list:", w_vintage)
+        # Determining all other filters:
+        # Selecting countries with option "All" included:
+        selected_country = st.multiselect("Please choose a country from the list:", ["All Countries"] + w_country)
+        if "All Countries" in selected_country:
+            selected_country = w_country
+        if selected_country:
+            filtered_country = wines_dataset[wines_dataset["country"].isin(selected_country)]
+        else:
+            filtered_country = wines_dataset
+        
+        # Determining "min" and "max" price based on the filtered data in order to have a dynamic "st.slider":
+        #w_min_price = filtered_country["price_usd"].min()
+        #w_max_price = filtered_country["price_usd"].max()
+
+        # Selecting wine types with option "All" included:
+        selected_type = st.multiselect("What type of wine would you like to find?", ["All Types"] + w_type)
+        if "All Types" in selected_type:
+            selected_type = w_type
+        if selected_type:
+            filtered_type = wines_dataset[wines_dataset["wine_type"].isin(selected_type)]
+        else:
+            filtered_type = wines_dataset
+        
+        #
+        selected_monovarietal = st.radio("Would you like a monovarietal wine?", w_monovarietal) == "no"     # "== "yes/no"" avoids empty DataFrame in case user doesn't select
+        
+        #
+        selected_noble = st.radio("Would you like a noble grape variety?", w_noble) == "no"     # "== "yes/no"" avoids empty DataFrame in case user doesn't select
+        
+        # Selecting wine vintages with option "All" included:
+        selected_vintage = st.multiselect("Please choose a vintage from the list:", ["All Vintages"] + w_vintage)
+        if "All Vintages" in selected_vintage:
+            selected_vintage = w_vintage
+        if selected_vintage:
+            filtered_vintage = wines_dataset[wines_dataset["vintage"].isin(selected_vintage)]
+        else:
+            filtered_vintage = wines_dataset
+        
+        ### Filtering the dataset in order to have a dynamic "st.slider":
+        filtered_data = wines_dataset[
+                (wines_dataset["country"].isin(selected_country) if selected_country else True) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                (wines_dataset["wine_type"].isin(selected_type) if selected_type else True) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                (wines_dataset["monovarietal"]==selected_monovarietal) &
+                (wines_dataset["noble_international"]==selected_noble) &
+                (wines_dataset["vintage"].isin(selected_vintage) if selected_vintage else True)     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                ]     
+        
+        # Determining "min" and "max" price based on the filtered data:
+        if not filtered_data.empty:
+            w_min_price = filtered_data["price_usd"].min()
+            w_max_price = filtered_data["price_usd"].max()
+        else:
+            w_min_price = wines_dataset["price_usd"].min()
+            w_max_price = wines_dataset["price_usd"].max()
+
+        #
         selected_max_price = st.slider("What's the maximum price ($) would you like to pay?", int(w_min_price), int(w_max_price), value=int(w_max_price))
 
         if st.button("Find"):
             st.progress(100)
-            wines_found = wines_dataset[
-                (wines_dataset["country"]==selected_country) &
-                (wines_dataset["wine_type"].isin(selected_type) if selected_type else True) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
-                (wines_dataset["monovarietal"]==selected_monovarietal) &
-                (wines_dataset["noble_international"]==selected_noble) &
-                (wines_dataset["vintage"].isin(selected_vintage) if selected_vintage else True) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
-                (wines_dataset["price_usd"]<selected_max_price)
-            ].sort_values(by=["points", "price_usd", "vintage"], ascending=[False, False, False]).head(15)
+            wines_found = filtered_data[
+                filtered_data["price_usd"] < selected_max_price
+                ].sort_values(by=["points", "price_usd", "vintage"], ascending=[False, False, False])#.head(15)
 
             if not wines_found.empty:
-                st.success("Congrats! :smiley: Wines matching your criteria are found! Find below a list of the 15 best wines, max:")
-                st.dataframe(wines_found)
+                st.success("Congrats, wines matching your criteria are found! :smiley:\n"
+                           "Find below a list of the 15 best wines according to such criteria:")
+
+                # Reseting index and setting it up in order to start from 1:
+                wines_found.reset_index(drop=True, inplace=True)
+                wines_found.index = np.arange(1, len(wines_found) + 1)
+
+                # Showing the resulting DataFrame:
+                st.dataframe(wines_found[["points",
+                                          "price_usd",
+                                          "vintage",
+                                          "country",
+                                          "winery",
+                                          "apellation",
+                                          "wine_type",
+                                          "variety",                                          
+                                          "taste_dry-sweet",
+                                          "taste_body",
+                                          "taste_tannins",
+                                          "taste_acidity",
+                                          "avg_abv_%",
+                                          "avg_serve_temp_c",
+                                          "primary_flavors"]])
             else:
-                st.error("Pity, no wines are found with these criteria! :disappointed_relieved: Try to modify them for a successful search!")
+                st.error("Pity, no wines are found with these criteria! :disappointed_relieved:\n"
+                         "Try to modify them for a successful search!")
     
     if __name__ == "__main__":
         wine_searcher()
@@ -97,10 +165,23 @@ elif selection=="Wine Searcher":     # Displaying the wine Searcher out of the t
 
 elif selection=="Price Predictor":     # Displaying a Machine Learning model
     st.header("Let's try to predict some prices! :gear:")
+    
+    
+    #Tabs:
+    tab1, tab2, tab3=st.tabs(["Logistic Regression", "K-Nearest Neighbors", "Random Forest"])
+    with tab1:
+        tab1.write("I'm the first tab")
 
-    st.button("Guess")
+        st.button("Guess1")
+    with tab2:
+        st.write("That's the second tab")
+    
+        st.button("Guess2")
 
-
+    with tab3:
+            st.write("You are the third tab")
+        
+            st.button("Guess3")
 
 
 
