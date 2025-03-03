@@ -171,32 +171,43 @@ elif selection=="Wine Searcher":
                 st.success("Congrats, wines matching your criteria are found! :smiley:\n"
                            "Find below a list of the best wines according to such criteria:")
 
-                col1, col2 = st.columns(2)
+                displayed_wines = set()
                 counter = 0
-                for index, row in wines_found.head(10).iterrows():    
-                    with col1:                    
-                        counter += 1
-                        st.header(f"{counter}. *Wine Name*")
-                        st.image(flags_dict[row["country"]], width=30)
-                        st.write(f"**Country:** {row["country"]}")
-                        st.write(f"**Points:** {row["points"]}")
-                        st.write(f"**Price:** ${row["price_usd"]} USD")
-                        st.write(f"**Vintage:** {row["vintage"]}")
-                        st.write(f"**Apellation:** {row["apellation"]}")
-                        st.write(f"**Type:** {row["wine_type"]}")
-                        st.write(f"**Variety:** {row["variety"]}")
-                        st.markdown("---")
-                        
-                    with col2:
-                        st.header("Tasting Notes")
-                        st.image(flags_dict[row["country"]], width=30)
-                        st.write(f"**Rating Sweetness:** {row["taste_dry-sweet"]}")
-                        st.write(f"**Rating Body:** {row["taste_body"]}")
-                        st.write(f"**Rating Tannins:** {row["taste_tannins"]}")
-                        st.write(f"**Rating Acidity:** {row["taste_acidity"]}")
-                        st.write(f"**ABV (Avg):** {row["avg_abv_%"]} %")
-                        st.write(f"**Service Temperature (Avg):** {row["avg_serve_temp_c"]}° Celsius")
-                        st.write(f"**Primary Flavors:** {row["primary_flavors"]}")
+                for index, row in wines_found.head(10).iterrows():
+
+                    wine_key = (row["title_new"], row["vintage"], row["apellation"])
+
+                    if wine_key in displayed_wines:
+                        continue
+    
+                    displayed_wines.add(wine_key)
+
+                    with st.container():
+                        col1, col2 = st.columns(2)
+
+                        with col1:                    
+                            counter += 1
+                            st.header(f"{counter}. {row["title_new"]}")
+                            st.image(flags_dict[row["country"]], width=30)
+                            st.write(f"**Country:** {row["country"]}")
+                            st.write(f"**Points:** {row["points"]}")
+                            st.write(f"**Price:** ${row["price_usd"]} USD")
+                            st.write(f"**Vintage:** {row["vintage"]}")
+                            st.write(f"**Apellation:** {row["apellation"]}")
+                            st.write(f"**Type:** {row["wine_type"]}")
+                            st.write(f"**Variety:** {row["variety"]}")
+                                      
+                        with col2:
+                            st.header("Tasting Notes")
+                            #st.image(flags_dict[row["country"]], width=30)
+                            st.write(f"**Rating Sweetness:** {row["taste_dry-sweet"]}")
+                            st.write(f"**Rating Body:** {row["taste_body"]}")
+                            st.write(f"**Rating Tannins:** {row["taste_tannins"]}")
+                            st.write(f"**Rating Acidity:** {row["taste_acidity"]}")
+                            st.write(f"**ABV (Avg):** {row["avg_abv_%"]} %")
+                            st.write(f"**Service Temperature (Avg):** {row["avg_serve_temp_c"]}° Celsius")
+                            st.write(f"**Primary Flavors:** {row["primary_flavors"]}")
+                            
                         st.markdown("---")
                 
             else:
@@ -216,7 +227,7 @@ elif selection=="Price Predictor":     # Displaying a Machine Learning model
     
     
     #Tabs:
-    tab1, tab2, tab3=st.tabs(["Logistic Regression", "K-Nearest Neighbors", "Random Forest"])
+    tab1, tab2, tab3=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor"])
     with tab1:
         tab1.write("I'm the first tab")
 

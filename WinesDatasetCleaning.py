@@ -1054,5 +1054,489 @@ def wine_dataset_cleaning():
                 most_frequent_twitter = counts_twitter_sorted.index[1]
 
             wines_final.loc[(wines_final["apellation"] == i) & (wines_final["taster_twitter_handle"] == "@Unknown_Wine_Taster"), "taster_twitter_handle"] = most_frequent_twitter
+
+    # Redifining column "title" for standardization:
+    new_title_dict = {("Abruzzo", "Red"): "Antrum Colle Secco",
+                  ("Abruzzo", "Rosé"): "Sant'Angelo",
+                  ("Abruzzo", "White"): "Castello Zarachè",
+
+                  ("Aconcagua", "Red"): "Corralillo Miramar",
+                  ("Aconcagua", "Rosé"): "Cefiro",
+                  ("Aconcagua", "White"): "El Refugio de Amelia",
+
+                  ("Alentejo", "Red"): "Convento da Garrafeira",
+                  ("Alentejo", "Rosé"): "Monte do Fado",
+                  ("Alentejo", "White"): "Olho de Ciconia",
+
+                  ("Alsace", "Red"): "Domaine Quintessence",
+                  ("Alsace", "Rosé"): "Harmony",
+                  ("Alsace", "Sparkling"): "Plaisirs d'Eclipse",
+                  ("Alsace", "White"): "Château Prestige Engel",
+
+                  ("Argentina", "Red"): "Triada de Nina",
+                  ("Argentina", "White"): "Terrazas Perpetuum",
+
+                  ("Australia", "Red"): "Deen Circle",
+                  ("Australia", "Rosé"): "Rip Snorter",
+                  ("Australia", "Sparkling"): "Taché",
+                  ("Australia", "White"): "Range Two Lands",
+
+                  ("Austria", "Red"): "Zum Sekt",
+                  ("Austria", "Rosé"): "Pannonica Zweigelt",
+                  ("Austria", "Sparkling"): "Pét Nat Sektkellerei",
+                  ("Austria", "White"): "Besse Fleur Morillon",
+
+                  ("Baden", "Red"): "Adler Sommerhalde",
+                  ("Baden", "Rosé"): "Schwarzer",
+                  ("Baden", "White"): "Kabinett Schulen",
+
+                  ("Bairrada", "Red"): "Marquês da Agueira Corvos",
+                  ("Bairrada", "Rosé"): "Neves",
+                  ("Bairrada", "Sparkling"): "Quinta do Azul",
+                  ("Bairrada", "White"): "Barrica Maria Branco",
+
+                  ("Barolo", "Red"): "Le Coste dell'Annunziata",
+
+                  ("Basilicata", "Red"): "Canneto del Vulture",
+                  ("Basilicata", "Rosé"): "Maddalena Pipoli",
+                  ("Basilicata", "White"): "Terre di Orazio Manfredi",
+
+                  ("Beaujolais", "Red"): "Les Violettes de Lumière",
+                  ("Beaujolais", "Rosé"): "Rosé de Soirée",
+                  ("Beaujolais", "White"): "Les Vignes d'Amélie",
+
+                  ("Bierzo", "Red"): "Villa de Hombros",
+                  ("Bierzo", "Rosé"): "Herencia de Canedo",
+                  ("Bierzo", "White"): "Finca de Pazariñas",
+
+                  ("Bordeaux", "Red"): "Château Gramond de Guerry",
+                  ("Bordeaux", "Rosé"): "Domaine León-Augey",
+                  ("Bordeaux", "Sparkling"): "Perles",
+                  ("Bordeaux", "White"): "Secret de Blaye-Montesquieu",
+
+                  ("Bourgogne", "Red"): "Domaine du Clos des Sorbets",
+                  ("Bourgogne", "Rosé"): "Gueguen",
+                  ("Bourgogne", "Sparkling"): "La Joie d'Egarade",
+                  ("Bourgogne", "White"): "Château des Enseignères",
+
+                  ("Breede River Valley", "Red"): "The Ridge Mountain",
+                  ("Breede River Valley", "Sparkling"): "Blanc de Blancs",
+                  ("Breede River Valley", "White"): "Lesca Bon Vallon",
+
+                  ("Burgenland", "Red"): "Umriss Dorflagen",
+                  ("Burgenland", "Rosé"): "Pink Vom Kalk",
+                  ("Burgenland", "White"): "Una Tatschler",
+
+                  ("California", "Red"): "The Eagle Bates' Ranch",
+                  ("California", "Rosé"): "Uncle Gris de Cigare",
+                  ("California", "Sparkling"): "Blanc de Blancs",
+                  ("California", "White"): "Crisp Clean Horseshoe",
+
+                  ("Campo de Borja", "Red"): "Los Tres Picos",
+                  ("Campo de Borja", "Rosé"): "Coto Moncayo",
+                  ("Campo de Borja", "White"): "Prados",
+
+                  ("Cape South Coast", "Red"): "Temptation Galpin Peak",
+                  ("Cape South Coast", "White"): "Crocodile's Kaaimansgat",
+
+                  ("Cariñena", "Red"): "Señorío de Agostón Menguante",
+                  ("Cariñena", "Rosé"): "Sleever Wings",
+                  ("Cariñena", "White"): "Corona Particular",
+
+                  ("Carneros", "Red"): "Black Rock Mountains",
+                  ("Carneros", "Rosé"): "Rosé Vineyard",
+                  ("Carneros", "Sparkling"): "Royal Carneros",
+                  ("Carneros", "White"): "Las Brisas Sangiacomo",
+
+                  ("Cava", "Red"): "Titiana",
+                  ("Cava", "Sparkling"): "Lustros de Peñalba",
+                  ("Cava", "White"): "Kila Privat",
+
+                  ("Central Otago", "Red"): "Unravelled Cornish",
+                  ("Central Otago", "White"): "Roaring Bannockburn",
+
+                  ("Champagne", "Red"): "Millésime de Rouges",
+                  ("Champagne", "Sparkling"): "Séduction Joyau d'Elisabeth",
+                  ("Champagne", "White"): "Blanc de Blancs",
+
+                  ("Chianti", "Red"): "Brunello di Sorugo",
+                  ("Chianti", "Rosé"): "Le Cicale Cassiopea",
+                  ("Chianti", "White"): "Donna Patrizia d'Achenio",
+                  
+                  ("Chile", "Red"): "Facundo Pereira",
+                  ("Chile", "Rosé"): "Le Rosé",
+                  ("Chile", "White"): "Casillero del Vitral",
+
+                  ("Chile Sur", "Red"): "Bravado-Tectonia",
+                  ("Chile Sur", "White"): "Artemisa del Quinel",
+
+                  ("Coastal Region", "Red"): "Oak Lane Pumphouse",
+                  ("Coastal Region", "Rosé"): "Jess Provenance",
+                  ("Coastal Region", "Sparkling"): "Kaapse Vonkel",
+                  ("Coastal Region", "White"): "The Old Gamekeeper",
+
+                  ("Collio Friulano", "Red"): "Terre Rossa",
+                  ("Collio Friulano", "White"): "Grappoli D'Adda Sant'Helena",
+
+                  ("Columbia Gorge", "Red"): "Le Petit Volcano",
+                  ("Columbia Gorge", "Rosé"): "Summer",
+                  ("Columbia Gorge", "White"): "Celilo Reminiscence",
+
+                  ("Columbia Valley", "Red"): "Heart of StoneTree",
+                  ("Columbia Valley", "Rosé"): "Abracadabra Ruby",
+                  ("Columbia Valley", "Sparkling"): "Luxe Pink Bubbly",
+                  ("Columbia Valley", "White"): "The Reserve Lightning",
+
+                  ("Conegliano-Valdobbiadene", "Red"): "Croder Montesco",
+                  ("Conegliano-Valdobbiadene", "Sparkling"): "Rive di Col Fondo",
+                  ("Conegliano-Valdobbiadene", "White"): "Vigneto 6° Senso",
+
+                  ("Coquimbo", "Red"): "Legado de Silo",
+                  ("Coquimbo", "Rosé"): "Pink Goat",
+                  ("Coquimbo", "White"): "Casillero del Marqués",
+
+                  ("Dão", "Red"): "Quinta da Fonte Grilos",
+                  ("Dão", "Rosé"): "Casa do São Matias",
+                  ("Dão", "Sparkling"): "Villa Cabriz",
+                  ("Dão", "White"): "Jardim do Correio",
+
+                  ("Douro", "Red"): "Cais da Ribeira Charamba",
+                  ("Douro", "Rosé"): "Monte Lua Ventozelo",
+                  ("Douro", "Sparkling"): "Vértice",
+                  ("Douro", "White"): "Vinha Fronteira",
+
+                  ("Finger Lakes", "Red"): "North Block Sawmill",
+                  ("Finger Lakes", "Rosé"): "Dry Nutt Road",
+                  ("Finger Lakes", "Sparkling"): "Bollicini Champanoise",
+                  ("Finger Lakes", "White"): "Luminous Moon Shadow",
+
+                  ("France", "Red"): "Les Copines de Cyrano",
+                  ("France", "Rosé"): "L'Île de Juliette",
+                  ("France", "Sparkling"): "Terre Appolonia",
+                  ("France", "White"): "La Châsse des Fumées",
+
+                  ("Franciacorta", "Red"): "Conte Lucrezio",
+                  ("Franciacorta", "Sparkling"): "La Scala Zero",
+                  ("Franciacorta", "White"): "Satèn Dosaggio",
+
+                  ("Germany", "Red"): "Casteller Neipperger",
+                  ("Germany", "Sparkling"): "Katharina",
+                  ("Germany", "White"): "Schloss Lump Kabinett",
+
+                  ("Hawke's Bay", "Red"): "The Gimblett's Patriarch",
+                  ("Hawke's Bay", "Rosé"): "Berry",
+                  ("Hawke's Bay", "White"): "Cape Crest Kidnappers",
+
+                  ("Italy", "Red"): "Palazzo della Grola",
+                  ("Italy", "Rosé"): "Bardolino Susucaru",
+                  ("Italy", "Sparkling"): "Opere Giribaldi",
+                  ("Italy", "White"): "Le Fossette di San Vicenzo",
+
+                  ("Jerez-Xérès-Sherry", "White"): "Oloroso",
+
+                  ("Jumilla", "Red"): "Las Gravas de Cármine",
+                  ("Jumilla", "Rosé"): "Monterebro",
+                  ("Jumilla", "White"): "Dulce Tierra",
+
+                  ("La Mancha", "Red"): "Finca del Azagador",
+                  ("La Mancha", "Rosé"): "La Rosa",
+                  ("La Mancha", "White"): "Hacienda Natural",
+
+                  ("Lake County", "Red"): "Serenity Horne Ranch",
+                  ("Lake County", "Rosé"): "Simply Rose",
+                  ("Lake County", "White"): "Bartolucci Wedge Block",
+
+                  ("Langhe", "Red"): "Ronchi Serragrilli",
+                  ("Langhe", "Sparkling"): "Contessa Rosa",
+                  ("Langhe", "White"): "Rovella Sognante",
+
+                  ("Languedoc-Roussillon", "Red"): "Les Terroirs de Passion",
+                  ("Languedoc-Roussillon", "Rosé"): "Villa Senhal d'Aric",
+                  ("Languedoc-Roussillon", "Sparkling"): "Toques de Berlène",
+                  ("Languedoc-Roussillon", "White"): "Château Odyssée",
+
+                  ("Lisboa", "Red"): "Quinta da Cabra Cega",
+                  ("Lisboa", "Rosé"): "Portada Bigode",
+                  ("Lisboa", "Sparkling"): "Bruto",
+                  ("Lisboa", "White"): "Quinta das Cigarras",
+
+                  ("Livermore Valley", "Red"): "Crimson & Clover",
+                  ("Livermore Valley", "Rosé"): "Del Arroyo",
+                  ("Livermore Valley", "White"): "DeMayo Ghielmetti",
+
+                  ("Long Island", "Red"): "Clone Meritage-Merliance",
+                  ("Long Island", "Rosé"): "Taste Rosato",
+                  ("Long Island", "Sparkling"): "Topaz Pétillant",
+                  ("Long Island", "White"): "White Barrel",
+
+                  ("Marlborough", "Red"): "Golden Letters",
+                  ("Marlborough", "Rosé"): "The Ned",
+                  ("Marlborough", "Sparkling"): "Blanc de Blancs",
+                  ("Marlborough", "White"): "Arona Old Schoolhouse",
+
+                  ("Mendocino County", "Red"): "The Old McNab",
+                  ("Mendocino County", "Rosé"): "Wild Thing Hawkeye",
+                  ("Mendocino County", "Sparkling"): "L'Ermitage Traditionnelle",
+                  ("Mendocino County", "White"): "Randle Mile Marker",
+
+                  ("Mendoza", "Red"): "Finca Dedicación",
+                  ("Mendoza", "Rosé"): "Piedra Rosada",
+                  ("Mendoza", "Sparkling"): "Magnífico",
+                  ("Mendoza", "White"): "Finca Lágrima Canela",
+
+                  ("Monferrato", "Red"): "Monte Bergantino",
+                  ("Monferrato", "White"): "La Meirana Rolona",
+
+                  ("Montefalco", "Red"): "Fidenzio Sagrantino",
+                  ("Montefalco", "White"): "Colle di Giove",
+
+                  ("Monterey County", "Red"): "Rosella's Coastview",
+                  ("Monterey County", "Rosé"): "Turbidity Ruby",
+                  ("Monterey County", "Sparkling"): "Blanc de Blancs",
+                  ("Monterey County", "White"): "Sierra Mar Griva",
+
+                  ("Montsant", "Red"): "Mas de Flor",
+                  ("Montsant", "Rosé"): "Mas Rosat",
+                  ("Montsant", "White"): "Mas de Santbru",
+
+                  ("Mosel-Saar-Ruwer", "Red"): "Underdog",
+                  ("Mosel-Saar-Ruwer", "Rosé"): "Ruby",
+                  ("Mosel-Saar-Ruwer", "Sparkling"): "Kestener Vom Schiefer",
+                  ("Mosel-Saar-Ruwer", "White"): "Trittenheimer Piesporter",
+
+                  ("Nahe", "Red"): "Trocken Cat",
+                  ("Nahe", "White"): "Kreuznacher Walhausen",
+
+                  ("Napa Valley", "Red"): "Sleeping Lady Terrace",
+                  ("Napa Valley", "Rosé"): "Corallina Arriviste",
+                  ("Napa Valley", "Sparkling"): "Querencia DVX",
+                  ("Napa Valley", "White"): "Berry Lane River's Ranch",
+
+                  ("Navarra", "Red"): "Tierra de Grandes Feudos",
+                  ("Navarra", "Rosé"): "Los Bohemios Rosados",
+                  ("Navarra", "White"): "El Cerezo Dulce",
+
+                  ("New South Wales", "Red"): "Long Basalt Block",
+                  ("New South Wales", "Rosé"): "Ruby Creek",
+                  ("New South Wales", "White"): "Maxwell Creek",
+
+                  ("New York", "Red"): "Anomally Still Waters",
+                  ("New York", "Rosé"): "Island Courage",
+                  ("New York", "Sparkling"): "Frizzante",
+                  ("New York", "White"): "Proprietor's Hill",
+
+                  ("New Zealand", "Red"): "Old Coach Tom's Block",
+                  ("New Zealand", "Rosé"): "Rosalyn",
+                  ("New Zealand", "White"): "Opou's Village",
+
+                  ("Niederösterreich", "Red"): "Vorgeschmack Impetus",
+                  ("Niederösterreich", "Rosé"): "Cistercien Strasser",
+                  ("Niederösterreich", "Sparkling"): "Leidenschaft",
+                  ("Niederösterreich", "White"): "Gmörk Weinberge",
+
+                  ("North Canterbury", "Red"): "Maestro Creek",
+                  ("North Canterbury", "White"): "Waipara Frog Rock",
+
+                  ("Oregon", "Red"): "Unconditional Red Hills",
+                  ("Oregon", "Rosé"): "Silver Linings",
+                  ("Oregon", "Sparkling"): "Blanc de Blancs",
+                  ("Oregon", "White"): "Ashland Blue Moon",
+
+                  ("Paso Robles", "Red"): "The Glenrose 900",
+                  ("Paso Robles", "Rosé"): "Pink Twisted Pedals",
+                  ("Paso Robles", "White"): "Enchantress Coquille",
+
+                  ("Patagonia", "Red"): "Finca de Barda Malma",
+                  ("Patagonia", "White"): "Saurus Deseado",
+
+                  ("Penedès", "Red"): "Clos de Corones",
+                  ("Penedès", "Rosé"): "Pacs de Torribes",
+                  ("Penedès", "Sparkling"): "MIM de la Finca",
+                  ("Penedès", "White"): "Massís de l'Ermita",
+
+                  ("Península de Setúbal", "Red"): "Châo de Bacalhôa",
+                  ("Península de Setúbal", "Rosé"): "Casa da Baía Azul",
+                  ("Península de Setúbal", "White"): "Quinta das Serras de Catarina",
+
+                  ("Pfalz", "Red"): "Friedelsheimer Kalksteinfels",
+                  ("Pfalz", "Rosé"): "Schweigen-Rechtenbach",
+                  ("Pfalz", "White"): "Gimmeldinger Kabinett",
+
+                  ("Portugal", "Red"): "Rabo do Cardo",
+                  ("Portugal", "Rosé"): "Alandra",
+                  ("Portugal", "Sparkling"): "Velha Loridos",
+                  ("Portugal", "White"): "Beyra",
+
+                  ("Priorat", "Red"): "Les Terrasses de la Figuera",
+                  ("Priorat", "Rosé"): "Roc d'Aubaga",
+                  ("Priorat", "White"): "Gotes de Montsalvat",
+
+                  ("Provence", "Red"): "Domaine de la Chapelle",
+                  ("Provence", "Rosé"): "Château Sables d'Azur",
+                  ("Provence", "White"): "Terre des Garrigues-Valentine",
+
+                  ("Rheingau", "Red"): "Max Rüdesheim",
+                  ("Rheingau", "Rosé"): "Saignée",
+                  ("Rheingau", "Sparkling"): "Sekt",
+                  ("Rheingau", "White"): "Domdechaney Grosse Lage",
+
+                  ("Rheinhessen", "Red"): "Red Sheep Kabinett",
+                  ("Rheinhessen", "Rosé"): "Trocken Rosé",
+                  ("Rheinhessen", "White"): "Niersteiner Kirchspiel",
+
+                  ("Rías Baixas", "White"): "Pazo das Cepas",
+
+                  ("Ribera del Duero", "Red"): "Torre de Vendimia",
+                  ("Ribera del Duero", "Rosé"): "Monte Sonrosado",
+
+                  ("Rioja", "Red"): "Marqués de Laguardia",
+                  ("Rioja", "Rosé"): "Conde de Diamante",
+                  ("Rioja", "White"): "Finca Olsgosa",
+
+                  ("Roero", "Red"): "Bricco dei Vigneti",
+                  ("Roero", "White"): "Donna Camestri",
+
+                  ("Rueda", "Red"): "Viña Isabelina",
+                  ("Rueda", "White"): "Inspiración de Vera",
+
+                  ("Salta", "Red"): "Altura de Los Andes",
+                  ("Salta", "Rosé"): "Amaru",
+                  ("Salta", "White"): "Hermanos Esperanza",
+
+                  ("San Juan", "Red"): "Finca Centenario",
+                  ("San Juan", "White"): "Alma Ampakama",
+
+                  ("San Luis Obispo", "Red"): "Firepeak Springs",
+                  ("San Luis Obispo", "Rosé"): "Riviera",
+                  ("San Luis Obispo", "Sparkling"): "Brut de Blancs",
+                  ("San Luis Obispo", "White"): "Paragon Califa",
+
+                  ("Santa Barbara", "Red"): "El Jabalí Murmur",
+                  ("Santa Barbara", "Rosé"): "Adelaide's Heritage",
+                  ("Santa Barbara", "Sparkling"): "Cork Solomon Jumper",
+                  ("Santa Barbara", "White"): "La Encantada de Los Alamos",
+
+                  ("Sardegna", "Red"): "Grotta Montessu",
+                  ("Sardegna", "Rosé"): "Chiaro Silenzi",
+                  ("Sardegna", "White"): "Villa Dolci Note",
+
+                  ("Sicilia", "Red"): "Terrale Lorlando Donnatà",
+                  ("Sicilia", "Rosé"): "Molino Regaleali",
+                  ("Sicilia", "White"): "Villa Pietralava",
+
+                  ("Sierra Foothills", "Red"): "Cooper Ridge",
+                  ("Sierra Foothills", "Rosé"): "Neophyte d'Amour",
+                  ("Sierra Foothills", "White"): "Grace Mine",
+
+                  ("Sonoma", "Red"): "Thornton's Ranch",
+                  ("Sonoma", "Rosé"): "Durell Bench",
+                  ("Sonoma", "Sparkling"): "Le Premier X",
+                  ("Sonoma", "White"): "Redwood Grand Archer",
+
+                  ("South Africa", "Red"): "Bayview",
+                  ("South Africa", "White"): "Magnetic Bergkelder",
+
+                  ("South Australia", "Red"): "Titan Warboys",
+                  ("South Australia", "Rosé"): "The Y Scarlet",
+                  ("South Australia", "Sparkling"): "Bubbles",
+                  ("South Australia", "White"): "Beacon Grove",
+
+                  ("Southern Chile", "Red"): "Quino Noir",
+                  ("Southern Chile", "White"): "Sol de Sol",
+
+                  ("Southern Oregon", "Red"): "Barrel Cascade",
+                  ("Southern Oregon", "Rosé"): "Two Dogs",
+                  ("Southern Oregon", "Sparkling"): "Transparency",
+                  ("Southern Oregon", "White"): "MRV Crater View",
+
+                  ("Spain", "Red"): "Pago de Unus",
+                  ("Spain", "Rosé"): "Conde Solaz",
+                  ("Spain", "Sparkling"): "Textures de Tarima",
+                  ("Spain", "White"): "Viña Parcela 52",
+
+                  ("Steiermark", "Red"): "Olivin Blauer",
+                  ("Steiermark", "Rosé"): "Alte Reben 69",
+                  ("Steiermark", "White"): "Klausen Gamlitzberg",
+
+                  ("Sud-Ouest", "Red"): "Baron Loup",
+                  ("Sud-Ouest", "Rosé"): "Domaine L'Allégresse",
+                  ("Sud-Ouest", "White"): "Mirabelle de la Tendresse",
+
+                  ("Tasmania", "Red"): "Pipers Zdar",
+                  ("Tasmania", "Sparkling"): "Pipers",
+                  ("Tasmania", "White"): "Kayena's Corner",
+
+                  ("Tejo", "Red"): "Marquesa de Bridão",
+                  ("Tejo", "Rosé"): "Vinha Espirito",
+                  ("Tejo", "Sparkling"): "Conde de Vimioso Oculto",
+                  ("Tejo", "White"): "Vinha Padre Serradayres",
+
+                  ("Toro", "Red"): "Carodorum Eternum",
+                  ("Toro", "Rosé"): "Dama Rosada",
+
+                  ("Trentino-Alto Adige", "Red"): "Praepositus",
+                  ("Trentino-Alto Adige", "Rosé"): "Signé",
+                  ("Trentino-Alto Adige", "Sparkling"): "Madame Dosaggio",
+                  ("Trentino-Alto Adige", "White"): "L'Aristocratico Giovanelli",
+
+                  ("Val de Loire", "Red"): "Les Demoiselles de la Croix",
+                  ("Val de Loire", "Rosé"): "Les Amphores des Rochettes",
+                  ("Val de Loire", "Sparkling"): "Amirault Saphir",
+                  ("Val de Loire", "White"): "Domaine Les Chailloux",
+
+                  ("Valle Central", "Red"): "La Reina del Alto",
+                  ("Valle Central", "Rosé"): "Cherub Puerto Viejo",
+                  ("Valle Central", "White"): "Desafío del Delirio",
+
+                  ("Vallée du Rhône", "Red"): "Domaine Légende des Gigondas",
+                  ("Vallée du Rhône", "Rosé"): "La Reine Clara",
+                  ("Vallée du Rhône", "White"): "Domaine Les Miaux",
+
+                  ("Valpolicella", "Red"): "Amarone della Cengia",
+
+                  ("Valtellina", "Red"): "Fiame Grumello",
+                  ("Valtellina", "White"): "Ca'Brione",
+
+                  ("Victoria", "Red"): "The Barkly Underwoods",
+                  ("Victoria", "Rosé"): "Mathilda",
+                  ("Victoria", "Sparkling"): "Yarrabank",
+                  ("Victoria", "White"): "Warramunda Aeolia",
+
+                  ("Vienna", "Red"): "Trilogie Mephisto",
+                  ("Vienna", "White"): "Jungherrn Alsegg",
+
+                  ("Vinho Verde", "Red"): "Homenagem Tinto",
+                  ("Vinho Verde", "Rosé"): "Portal da Pluma",
+                  ("Vinho Verde", "White"): "Encostas das Plumas Antigas",
+
+                  ("Wairarapa", "Red"): "Kupe Te Muna",
+                  ("Wairarapa", "White"): "Three Paddles",
+
+                  ("Washington", "Red"): "The Velvet Phinny",
+                  ("Washington", "Rosé"): "Love La Primavera",
+                  ("Washington", "White"): "Daisy Two Vines",
+
+                  ("Western Australia", "Red"): "Madeline Wilyabrup",
+                  ("Western Australia", "Rosé"): "Bridgeland Sunset",
+                  ("Western Australia", "White"): "Isolation Miamup",
+
+                  ("Western Cape", "Red"): "The Pirate of Serenity",
+                  ("Western Cape", "Rosé"): "Gorgeous Beachhouse",
+                  ("Western Cape", "Sparkling"): "Clive",
+                  ("Western Cape", "White"): "The Wolftrap Rumor",
+
+                  ("Willamette Valley", "Red"): "Boulder Zena Crown",
+                  ("Willamette Valley", "Rosé"): "Rustique Treehouse",
+                  ("Willamette Valley", "Sparkling"): "Early Knudsen",
+                  ("Willamette Valley", "White"): "Collier's Ab Ovo"
+                  }
+
+    # Creating a function to rename column "title":
+    def new_title(row):
+        return new_title_dict.get((row["apellation"], row["wine_type"]), "Unknown")
+    
+    # Applying the above function to create column "title_new":
+    wines_final["title_new"] = wines_final.apply(new_title, axis=1)
+
     
     return wines_final
