@@ -17,7 +17,8 @@ st.title("***World of Wines*** :wine_glass:")
 with st.sidebar:
     selection=st.radio("Menu:", ["Introduction","Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"])
 
-if selection=="Introduction":     # Providing some info about the world of wines
+# Providing some info about the world of wines:
+if selection=="Introduction":     
     st.header("Let's first get some interesting info about this amazing world! :confetti_ball:")    
     st.image("Images\Vineyards-1.jpg", caption="Vineyards somewhere in the World", width=950)   
     st.subheader("Did you know that?:")
@@ -36,9 +37,8 @@ if selection=="Introduction":     # Providing some info about the world of wines
 
 
 
-
-
-elif selection=="Vizzes":     # Embedding "Tableau Public" vizzes
+# Embedding "Tableau Public" vizzes:
+elif selection=="Vizzes":     
     st.header("Let's play a bit with the data! :grapes:")
 
     def vizzes():
@@ -50,6 +50,7 @@ elif selection=="Vizzes":     # Embedding "Tableau Public" vizzes
 
 
 
+# Defining the wine Searcher:
 elif selection=="Wine Searcher":
 
     # Charging flags for each country:
@@ -78,12 +79,9 @@ elif selection=="Wine Searcher":
                   "South Africa":zaf_image,
                   "Portugal":prt_image,
                   "France":fra_image,
-                  "United States":usa_image}  
-
-    #st.image(countries_dict[row["Country"]], width=50) -> inside the function dentro de la función para que salga el emoji
+                  "United States":usa_image}
     
-    
-    # Displaying the wine Searcher out of the treated DataFrame
+    # Displaying the wine Searcher out of the treated DataFrame:
     def wine_searcher():
         #from WinesDatasetCleaning import wine_dataset_cleaning as wdc
         # Loading the dataset:
@@ -125,10 +123,10 @@ elif selection=="Wine Searcher":
         else:
             filtered_type = wines_dataset
         
-        #
+        # Selecting monovarietal wines (yes/no):
         selected_monovarietal = st.radio("Would you like a monovarietal wine?", w_monovarietal) == "yes"     # "== "yes/no"" avoids empty DataFrame in case user doesn't select
         
-        #
+        # Selecting noble grape's varieties (yes/no):
         selected_noble = st.radio("Would you like a noble grape variety?", w_noble) == "yes"     # "== "yes/no"" avoids empty DataFrame in case user doesn't select
         
         # Selecting wine vintages with option "All" included:
@@ -148,18 +146,17 @@ elif selection=="Wine Searcher":
                 (wines_dataset["noble_international"]==selected_noble) &
                 (wines_dataset["vintage"].isin(selected_vintage)if selected_country else True)     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
                 ]     
-        
         # Determining "min" and "max" price based on the filtered data:
         if not filtered_data.empty:
             w_min_price = filtered_data["price_usd"].min()
             w_max_price = filtered_data["price_usd"].max()
             if w_min_price == w_max_price:
-                w_max_price = w_min_price + 1     # Adjustment to avoid slider issues!
+                w_max_price = w_min_price + 1     # Adjustment to avoid slider issues (when min_price = max_price)!
         else:
             w_min_price = wines_dataset["price_usd"].min()
             w_max_price = wines_dataset["price_usd"].max()
 
-        #
+        # Selecting "max" price the user would like to pay through "st.slider":
         selected_max_price = st.slider("What's the maximum price ($) would you like to pay?", int(w_min_price), int(w_max_price), value=int(w_max_price))
 
         if st.button("Find"):
@@ -219,12 +216,8 @@ elif selection=="Wine Searcher":
             
 
 
-
-
-
 elif selection=="Price Predictor":     # Displaying a Machine Learning model
     st.header("Let's try to predict some prices! :gear:")
-    
     
     #Tabs:
     tab1, tab2, tab3=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor"])
@@ -244,7 +237,8 @@ elif selection=="Price Predictor":     # Displaying a Machine Learning model
 
 
 
-else:     # Closing the Presentation
+# Finishing the Presentation:
+else:     
     st.subheader("Main Data Sources:")
     st.markdown("https://mavenanalytics.io/")
     st.markdown("https://winefolly.com/")
