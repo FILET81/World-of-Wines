@@ -35,37 +35,32 @@ if selection=="Introduction":
     st.markdown("**White** (lightest to richest) -> *Pinot Gris*, ***Riesling***, ***Sauvignon Blanc***, *Chenin Blanc*, *Moscato*, *Gewürztraminer*, *Sémillon*, *Viognier* and ***Chardonnay***.")
     st.image("https://media.winefolly.com/18-noble-grapes-diagram-winefolly.jpg", caption="Noble Varieties", width=950)
 
-
-
 # Embedding "Tableau Public" vizzes:
 elif selection=="Vizzes":     
     st.header("Let's play a bit with the data! :grapes:")
-
+    
     def vizzes():
-        html_temp="""<div class='tableauPlaceholder' id='viz1740833678486' style='position: relative'><noscript><a href='#'><img alt='World of Wines-4 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;wi&#47;wine_vizzes&#47;WorldofWines-4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='wine_vizzes&#47;WorldofWines-4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;wi&#47;wine_vizzes&#47;WorldofWines-4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1740833678486');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='877px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
+        html_temp="""<div class='tableauPlaceholder' id='viz1741271631515' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;wi&#47;wine_vizzes&#47;VarietiesbyCountry&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='wine_vizzes&#47;VarietiesbyCountry' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;wi&#47;wine_vizzes&#47;VarietiesbyCountry&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1741271631515');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='800px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"""
         components.html(html_temp, width=1500, height=1200)
-
     if __name__ == '__main__':
-        vizzes()
-
-
+            vizzes()
 
 # Defining the wine Searcher:
 elif selection=="Wine Searcher":
 
     # Charging flags for each country:
-    arg_image = "https://flagpedia.net/data/flags/w1160/ar.webp"
-    aus_image = "https://flagpedia.net/data/flags/w1160/au.webp"
-    chl_image = "https://flagpedia.net/data/flags/w1160/cl.webp"
-    esp_image = "https://flagpedia.net/data/flags/w1160/es.webp"
-    ita_image = "https://flagpedia.net/data/flags/w1160/it.webp"
-    deu_image = "https://flagpedia.net/data/flags/w1160/de.webp"
-    aut_image = "https://flagpedia.net/data/flags/w1160/at.webp"
-    nzl_image = "https://flagpedia.net/data/flags/w1160/nz.webp"
-    zaf_image = "https://flagpedia.net/data/flags/w1160/za.webp"
-    prt_image = "https://flagpedia.net/data/flags/w1160/pt.webp"
-    fra_image = "https://flagpedia.net/data/flags/w1160/fr.webp"
-    usa_image = "https://flagpedia.net/data/flags/w1160/us.webp"
+    arg_image = "https://flagcdn.com/h20/ar.webp"   # "https://flagpedia.net/data/flags/w1160/ar.webp"
+    aus_image = "https://flagcdn.com/h20/au.webp"   # "https://flagpedia.net/data/flags/w1160/au.webp"
+    chl_image = "https://flagcdn.com/h20/cl.webp"   # "https://flagpedia.net/data/flags/w1160/cl.webp"
+    esp_image = "https://flagcdn.com/h20/es.webp"   # "https://flagpedia.net/data/flags/w1160/es.webp"
+    ita_image = "https://flagcdn.com/h20/it.webp"   # "https://flagpedia.net/data/flags/w1160/it.webp"
+    deu_image = "https://flagcdn.com/h20/de.webp"   # "https://flagpedia.net/data/flags/w1160/de.webp"
+    aut_image = "https://flagcdn.com/h20/at.webp"   # "https://flagpedia.net/data/flags/w1160/at.webp"
+    nzl_image = "https://flagcdn.com/h20/nz.webp"   # "https://flagpedia.net/data/flags/w1160/nz.webp"
+    zaf_image = "https://flagcdn.com/h20/za.webp"   # "https://flagpedia.net/data/flags/w1160/za.webp"
+    prt_image = "https://flagcdn.com/h20/pt.webp"   # "https://flagpedia.net/data/flags/w1160/pt.webp"
+    fra_image = "https://flagcdn.com/h20/fr.webp"   # "https://flagpedia.net/data/flags/w1160/fr.webp"
+    usa_image = "https://flagcdn.com/h20/us.webp"   # "https://flagpedia.net/data/flags/w1160/us.webp"
     
     #Creating a dictionary to link each country of the dataset with the corresponding flag:
     flags_dict = {"Argentina":arg_image,
@@ -104,11 +99,10 @@ elif selection=="Wine Searcher":
         selected_country = st.multiselect("Please choose a country from the list:", ["All Countries"] + w_country)
         if "All Countries" in selected_country or len(selected_country) == 0:
             selected_country = w_country
-
-        if selected_country:
-            filtered_country = wines_dataset[wines_dataset["country"].isin(selected_country)]
-        else:
-            filtered_country = wines_dataset
+        #if selected_country:
+        #    filtered_country = wines_dataset[wines_dataset["country"].isin(selected_country)]
+        #else:
+        #    filtered_country = wines_dataset
         
         # Determining "min" and "max" price based on the filtered data in order to have a dynamic "st.slider":
         #w_min_price = filtered_country["price_usd"].min()
@@ -118,10 +112,10 @@ elif selection=="Wine Searcher":
         selected_type = st.multiselect("What type of wine would you like to find?", ["All Types"] + w_type)
         if "All Types" in selected_type:
             selected_type = w_type
-        if selected_type:
-            filtered_type = wines_dataset[wines_dataset["wine_type"].isin(selected_type)]
-        else:
-            filtered_type = wines_dataset
+        #if selected_type:
+        #    filtered_type = wines_dataset[wines_dataset["wine_type"].isin(selected_type)]
+        #else:
+        #    filtered_type = wines_dataset
         
         # Selecting monovarietal wines (yes/no):
         selected_monovarietal = st.radio("Would you like a monovarietal wine?", w_monovarietal) == "yes"     # "== "yes/no"" avoids empty DataFrame in case user doesn't select
@@ -133,18 +127,18 @@ elif selection=="Wine Searcher":
         selected_vintage = st.multiselect("Please choose a vintage from the list:", ["All Vintages"] + w_vintage)
         if "All Vintages" in selected_vintage:
             selected_vintage = w_vintage
-        if selected_vintage:
-            filtered_vintage = wines_dataset[wines_dataset["vintage"].isin(selected_vintage)]
-        else:
-            filtered_vintage = wines_dataset
+        #if selected_vintage:
+        #    filtered_vintage = wines_dataset[wines_dataset["vintage"].isin(selected_vintage)]
+        #else:
+        #    filtered_vintage = wines_dataset
         
         ### Filtering the dataset in order to have a dynamic "st.slider":
         filtered_data = wines_dataset[
-                (wines_dataset["country"].isin(selected_country) if selected_country else True) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
-                (wines_dataset["wine_type"].isin(selected_type)if selected_country else True)  &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                (wines_dataset["country"].isin(selected_country)) &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                (wines_dataset["wine_type"].isin(selected_type))  &     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
                 (wines_dataset["monovarietal"]==selected_monovarietal) &
                 (wines_dataset["noble_international"]==selected_noble) &
-                (wines_dataset["vintage"].isin(selected_vintage)if selected_country else True)     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
+                (wines_dataset["vintage"].isin(selected_vintage))     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
                 ]     
         # Determining "min" and "max" price based on the filtered data:
         if not filtered_data.empty:
@@ -170,7 +164,7 @@ elif selection=="Wine Searcher":
 
                 displayed_wines = set()
                 counter = 0
-                for index, row in wines_found.head(10).iterrows():
+                for index, row in wines_found.head(15).iterrows():
 
                     wine_key = (row["title_new"], row["vintage"], row["apellation"])
 
@@ -196,7 +190,7 @@ elif selection=="Wine Searcher":
                                       
                         with col2:
                             st.header("Tasting Notes")
-                            #st.image(flags_dict[row["country"]], width=30)
+                            st.image("Images\White Background Landscape.jpg", width=30)
                             st.write(f"**Rating Sweetness:** {row["taste_dry-sweet"]}")
                             st.write(f"**Rating Body:** {row["taste_body"]}")
                             st.write(f"**Rating Tannins:** {row["taste_tannins"]}")
@@ -213,29 +207,31 @@ elif selection=="Wine Searcher":
     
     if __name__ == "__main__":
         wine_searcher()
-            
 
-
-elif selection=="Price Predictor":     # Displaying a Machine Learning model
+# Displaying a Machine Learning model:
+elif selection=="Price Predictor":     
     st.header("Let's try to predict some prices! :gear:")
     
     #Tabs:
-    tab1, tab2, tab3=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor"])
-    with tab1:
-        tab1.write("I'm the first tab")
+    tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor", "Predictor"])
+    with tabml1:
+        st.write("I'm the first tab")
 
         st.button("Guess1")
-    with tab2:
-        st.write("That's the second tab")
+    with tabml2:
+        st.write("What a NIGHTMARE!!!")
     
         st.button("Guess2")
 
-    with tab3:
-            st.write("You are the third tab")
+    with tabml3:
+        st.write("You are the third tab")
         
-            st.button("Guess3")
+        st.button("Guess3")
+    
+    with tabml4:
+        st.write("HELLO WORLD!!!!")
 
-
+        st.button("Guess4")
 
 # Finishing the Presentation:
 else:     
@@ -244,8 +240,7 @@ else:
     st.markdown("https://winefolly.com/")
     st.markdown("https://www.wikipedia.org/")
     st.markdown("https://flagpedia.net/")
-    st.markdown("https://www.oiv.int/")
-    st.markdown("https://www.oecd.org/")
     st.markdown("And many others...")
-    st.subheader("Thanks for listening!!!")
+    st.markdown("")
+    st.subheader("THANKS FOR LISTENING!!!")
     st.image("Images\Vineyards-7.jpg", caption="Vineyards somewhere in the World", width=950)

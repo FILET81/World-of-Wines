@@ -1399,7 +1399,7 @@ def wine_dataset_cleaning():
                   ("Rueda", "Red"): "Viña Isabelina",
                   ("Rueda", "White"): "Inspiración de Vera",
 
-                  ("Salta", "Red"): "Altura de Los Andes",
+                  ("Salta", "Red"): "Alturas de La Patagonia",
                   ("Salta", "Rosé"): "Amaru",
                   ("Salta", "White"): "Hermanos Esperanza",
 
