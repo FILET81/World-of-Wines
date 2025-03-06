@@ -49,18 +49,18 @@ elif selection=="Vizzes":
 elif selection=="Wine Searcher":
 
     # Charging flags for each country:
-    arg_image = "https://flagcdn.com/h20/ar.webp"   # "https://flagpedia.net/data/flags/w1160/ar.webp"
-    aus_image = "https://flagcdn.com/h20/au.webp"   # "https://flagpedia.net/data/flags/w1160/au.webp"
-    chl_image = "https://flagcdn.com/h20/cl.webp"   # "https://flagpedia.net/data/flags/w1160/cl.webp"
-    esp_image = "https://flagcdn.com/h20/es.webp"   # "https://flagpedia.net/data/flags/w1160/es.webp"
-    ita_image = "https://flagcdn.com/h20/it.webp"   # "https://flagpedia.net/data/flags/w1160/it.webp"
-    deu_image = "https://flagcdn.com/h20/de.webp"   # "https://flagpedia.net/data/flags/w1160/de.webp"
-    aut_image = "https://flagcdn.com/h20/at.webp"   # "https://flagpedia.net/data/flags/w1160/at.webp"
-    nzl_image = "https://flagcdn.com/h20/nz.webp"   # "https://flagpedia.net/data/flags/w1160/nz.webp"
-    zaf_image = "https://flagcdn.com/h20/za.webp"   # "https://flagpedia.net/data/flags/w1160/za.webp"
-    prt_image = "https://flagcdn.com/h20/pt.webp"   # "https://flagpedia.net/data/flags/w1160/pt.webp"
-    fra_image = "https://flagcdn.com/h20/fr.webp"   # "https://flagpedia.net/data/flags/w1160/fr.webp"
-    usa_image = "https://flagcdn.com/h20/us.webp"   # "https://flagpedia.net/data/flags/w1160/us.webp"
+    arg_image = "https://flagcdn.com/h20/ar.webp"     # "https://flagpedia.net/data/flags/w1160/ar.webp"
+    aus_image = "https://flagcdn.com/h20/au.webp"     # "https://flagpedia.net/data/flags/w1160/au.webp"
+    chl_image = "https://flagcdn.com/h20/cl.webp"     # "https://flagpedia.net/data/flags/w1160/cl.webp"
+    esp_image = "https://flagcdn.com/h20/es.webp"     # "https://flagpedia.net/data/flags/w1160/es.webp"
+    ita_image = "https://flagcdn.com/h20/it.webp"     # "https://flagpedia.net/data/flags/w1160/it.webp"
+    deu_image = "https://flagcdn.com/h20/de.webp"     # "https://flagpedia.net/data/flags/w1160/de.webp"
+    aut_image = "https://flagcdn.com/h20/at.webp"     # "https://flagpedia.net/data/flags/w1160/at.webp"
+    nzl_image = "https://flagcdn.com/h20/nz.webp"     # "https://flagpedia.net/data/flags/w1160/nz.webp"
+    zaf_image = "https://flagcdn.com/h20/za.webp"     # "https://flagpedia.net/data/flags/w1160/za.webp"
+    prt_image = "https://flagcdn.com/h20/pt.webp"     # "https://flagpedia.net/data/flags/w1160/pt.webp"
+    fra_image = "https://flagcdn.com/h20/fr.webp"     # "https://flagpedia.net/data/flags/w1160/fr.webp"
+    usa_image = "https://flagcdn.com/h20/us.webp"     # "https://flagpedia.net/data/flags/w1160/us.webp"
     
     #Creating a dictionary to link each country of the dataset with the corresponding flag:
     flags_dict = {"Argentina":arg_image,
@@ -213,25 +213,26 @@ elif selection=="Price Predictor":
     st.header("Let's try to predict some prices! :gear:")
     
     #Tabs:
-    tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor", "Predictor"])
+    tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Random Forest Regressor", "Support Vector Regressor", "Predictor"])
     with tabml1:
         st.write("I'm the first tab")
 
-        st.button("Guess1")
+
+        
     with tabml2:
-        st.write("What a NIGHTMARE!!!")
+        st.write("I'm the second tab")
     
-        st.button("Guess2")
+        
 
     with tabml3:
-        st.write("You are the third tab")
+        st.write("What a NIGHTMARE!!!")
         
-        st.button("Guess3")
+        
     
     with tabml4:
-        st.write("HELLO WORLD!!!!")
+        st.write("Let's predict an affordable wine's price:")
 
-        st.button("Guess4")
+        #st.button("Guess", on_click=lambda: predict())
 
 # Finishing the Presentation:
 else:     
