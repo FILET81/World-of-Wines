@@ -79,7 +79,6 @@ elif selection=="Wine Searcher":
     
     # Displaying the wine Searcher out of the treated DataFrame:
     def wine_searcher():
-        #from WinesDatasetCleaning import wine_dataset_cleaning as wdc
         # Loading the dataset:
         wines_dataset = wdc()
         
@@ -104,10 +103,6 @@ elif selection=="Wine Searcher":
         #    filtered_country = wines_dataset[wines_dataset["country"].isin(selected_country)]
         #else:
         #    filtered_country = wines_dataset
-        
-        # Determining "min" and "max" price based on the filtered data in order to have a dynamic "st.slider":
-        #w_min_price = filtered_country["price_usd"].min()
-        #w_max_price = filtered_country["price_usd"].max()
 
         # Selecting wine types with option "All" included:
         selected_type = st.multiselect("What type of wine would you like to find?", ["All Types"] + w_type)
