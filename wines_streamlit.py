@@ -3,6 +3,7 @@ warnings.filterwarnings("ignore")
 
 import streamlit as st
 import streamlit.components.v1 as components
+from PIL import Image
 import pandas as pd
 import numpy as np
 #import matplotlib.pyplot as plt
@@ -22,7 +23,7 @@ with st.sidebar:
 # Providing some info about the world of wines:
 if selection=="Introduction":     
     st.header("Let's first get some interesting info about this amazing world! :confetti_ball:")    
-    st.image("Images\Vineyards-1.jpg", caption="Vineyards somewhere in the World", width=950)   
+    st.image("Images\Vineyards-1.jpg", caption="Vineyards somewhere in the World", width=950)  
     st.subheader("Did you know that?:")
     st.markdown("- Wine production dates back to at least **6000 BC** in **Georgia**, **5000 BC** in **Iran** or **4100 BC** in **Armenia**.")
     st.markdown("- Ancient civilizations like the **Egyptians**, **Greeks** and **Romans** further developed **winemaking techniques**.")
@@ -51,18 +52,18 @@ elif selection=="Vizzes":
 elif selection=="Wine Searcher":
 
     # Charging flags for each country:
-    arg_image = "https://flagcdn.com/h20/ar.webp"     # "https://flagpedia.net/data/flags/w1160/ar.webp"
-    aus_image = "https://flagcdn.com/h20/au.webp"     # "https://flagpedia.net/data/flags/w1160/au.webp"
-    chl_image = "https://flagcdn.com/h20/cl.webp"     # "https://flagpedia.net/data/flags/w1160/cl.webp"
-    esp_image = "https://flagcdn.com/h20/es.webp"     # "https://flagpedia.net/data/flags/w1160/es.webp"
-    ita_image = "https://flagcdn.com/h20/it.webp"     # "https://flagpedia.net/data/flags/w1160/it.webp"
-    deu_image = "https://flagcdn.com/h20/de.webp"     # "https://flagpedia.net/data/flags/w1160/de.webp"
-    aut_image = "https://flagcdn.com/h20/at.webp"     # "https://flagpedia.net/data/flags/w1160/at.webp"
-    nzl_image = "https://flagcdn.com/h20/nz.webp"     # "https://flagpedia.net/data/flags/w1160/nz.webp"
-    zaf_image = "https://flagcdn.com/h20/za.webp"     # "https://flagpedia.net/data/flags/w1160/za.webp"
-    prt_image = "https://flagcdn.com/h20/pt.webp"     # "https://flagpedia.net/data/flags/w1160/pt.webp"
-    fra_image = "https://flagcdn.com/h20/fr.webp"     # "https://flagpedia.net/data/flags/w1160/fr.webp"
-    usa_image = "https://flagcdn.com/h20/us.webp"     # "https://flagpedia.net/data/flags/w1160/us.webp"
+    arg_image = "https://flagcdn.com/h20/ar.webp"       # "https://flagpedia.net/data/flags/w1160/ar.webp"
+    aus_image = "https://flagcdn.com/h20/au.webp"       # "https://flagpedia.net/data/flags/w1160/au.webp"
+    chl_image = "https://flagcdn.com/h20/cl.webp"       # "https://flagpedia.net/data/flags/w1160/cl.webp"
+    esp_image = "https://flagcdn.com/h20/es.webp"       # "https://flagpedia.net/data/flags/w1160/es.webp"
+    ita_image = "https://flagcdn.com/h20/it.webp"       # "https://flagpedia.net/data/flags/w1160/it.webp"
+    deu_image = "https://flagcdn.com/h20/de.webp"       # "https://flagpedia.net/data/flags/w1160/de.webp"
+    aut_image = "https://flagcdn.com/h20/at.webp"       # "https://flagpedia.net/data/flags/w1160/at.webp"
+    nzl_image = "https://flagcdn.com/h20/nz.webp"       # "https://flagpedia.net/data/flags/w1160/nz.webp"
+    zaf_image = "https://flagcdn.com/h20/za.webp"       # "https://flagpedia.net/data/flags/w1160/za.webp"
+    prt_image = "https://flagcdn.com/h20/pt.webp"       # "https://flagpedia.net/data/flags/w1160/pt.webp"
+    fra_image = "https://flagcdn.com/h20/fr.webp"       # "https://flagpedia.net/data/flags/w1160/fr.webp"
+    usa_image = "https://flagcdn.com/h20/us.webp"       # "https://flagpedia.net/data/flags/w1160/us.webp"
     
     #Creating a dictionary to link each country of the dataset with the corresponding flag:
     flags_dict = {"Argentina":arg_image,
@@ -142,6 +143,7 @@ elif selection=="Wine Searcher":
                 (wines_dataset["noble_international"]==selected_noble) &
                 (wines_dataset["vintage"].isin(selected_vintage))     # "if selected_type else True" avoids empty DataFrame in case user doesn't select
                 ]     
+        
         # Determining "min" and "max" price based on the filtered data:
         if not filtered_data.empty:
             w_min_price = filtered_data["price_usd"].min()
@@ -363,15 +365,26 @@ elif selection=="Price Predictor":
         #st.title("Wine Price Predictor")
         st.write(f"Enter some wine characteristics to predict an **affordable** price:")
 
+        # Defining dynamic mapping for "avg_abv" and "avg_temp" below:
+        wine_options = {
+            "Red": {"avg_abv": [10.75, 12.5, 14.25, 16, 21], "avg_temp": [9.5, 13.5, 17.5]},
+            "White": {"avg_abv": [9, 10.75, 12.5, 14.25, 21], "avg_temp": [5, 9.5, 13.5]},
+            "Rosé": {"avg_abv": [12.5], "avg_temp": [9.5]},
+            "Sparkling": {"avg_abv": [12.5], "avg_temp": [9.5]}
+            }
+
         # User inputs:
         points = st.number_input(f"**Points** (80 - 100)", min_value=80, max_value=100, value=90)
-        wine_type = st.selectbox(f"Wine **Type**", data["wine_type"].unique())
+        #wine_type = st.selectbox(f"Wine **Type**", data["wine_type"].unique())
+        wine_type = st.selectbox(f"Wine **Type**", wine_options.keys())
         #avg_abv = st.selectbox("Average ABV %", [9, 10.75, 12.5, 14.25, 16, 21])
         #avg_abv = st.checkbox("Average ABV %", value=False)
-        avg_abv = st.radio(f"Avg **ABV** (%)", [9, 10.75, 12.5, 14.25, 16, 21])
+        #avg_abv = st.radio(f"Avg **ABV** (%)", [9, 10.75, 12.5, 14.25, 16, 21])
+        avg_abv = st.radio(f"Avg **ABV** (%)", wine_options[wine_type]["avg_abv"])
         #avg_temp = st.selectbox("Average Serving Temperature (°C)", [5, 9.5, 13.5, 17.5])
         #avg_temp = st.checkbox("Average Serving Temperature (°C)", value=False)
-        avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", [5, 9.5, 13.5, 17.5])
+        #avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", [5, 9.5, 13.5, 17.5])
+        avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", wine_options[wine_type]["avg_temp"])
         taste_dry_sweet = st.slider(f"Tasting **Dry-Sweet** (1 - 5)", min_value=1, max_value=5, value=2, step=1)
         taste_body = st.slider(f"Tasting **Body** (1 - 5)", min_value=1, max_value=5, value=3, step=1)
         taste_tannins = st.slider(f"Tasting **Tannins** (1 - 5)", min_value=1, max_value=5, value=4, step=1)
