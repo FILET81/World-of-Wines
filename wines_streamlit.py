@@ -5,8 +5,10 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import os
+#import matplotlib.pyplot as plt
+#import os
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import MinMaxScaler
 
 from WinesDatasetCleaning import wine_dataset_cleaning as wdc
 
@@ -211,28 +213,192 @@ elif selection=="Wine Searcher":
 # Displaying a Machine Learning model:
 elif selection=="Price Predictor":     
     st.header("Let's try to predict some prices! :gear:")
+    st.image("Images\Vineyards-5.jpg", caption="Vineyards somewhere in the World", width=900)
     
     #Tabs:
-    tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Random Forest Regressor", "Support Vector Regressor", "Predictor"])
+    tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor", "Price Predictor"])
     with tabml1:
-        st.write("I'm the first tab")
+        colml1, colml2, colml3 = st.columns(3)
+        with colml1:
+            st.write(f"**Simple Variant**")
+            st.write(f"**1. *Original/Default***:")
+            st.write(f"Mean Squared Error (***MSE***) ->", 1499.28)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.2004)
+            st.markdown("---")
+            st.write(f"**2. *Applying VIF***:")
+            st.write(f"Mean Squared Error (***MSE***) ->", 1813.54)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.0328)
+            st.markdown("---")
+            st.write(f"**3. *Filtering Dataset by Prices < $75***:")
+            st.write(f"Mean Squared Error (***MSE***) ->", 160.01)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3869)
+            st.markdown("---")
+            st.write(f"**4. *Filtering Dataset by Prices < $50***:")
+            st.write(f"Mean Squared Error (***MSE***) ->", 86.86)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3287)
 
-
+        with colml2:
+            st.write(f"**Rigde Variant (+ .GridSearch())**")
+            #st.write(f"**1. *Original/Default***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 1499.29)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.2004)
+            st.markdown("---")
+            #st.write(f"**2. *Applying VIF***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 1813.55)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.0328)
+            st.markdown("---")
+            #st.write(f"**3. *Filtering Dataset by Prices < $75***:")
+            st.image("Images\White Background Landscape.jpg", width=49)
+            st.write(f"Mean Squared Error (***MSE***) ->", 160.01)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3869)
+            st.markdown("---")
+            #st.write(f"**4. *Filtering Dataset by Prices < $50***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 86.86)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3287)
         
-    with tabml2:
-        st.write("I'm the second tab")
+        with colml3:
+            st.write(f"**Lasso Variant (+ .GridSearch())**")
+            #st.write(f"**1. *Original/Default***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 1499.28)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.2004)
+            st.markdown("---")
+            #st.write(f"**2. *Applying VIF***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 1813.55)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.0328)
+            st.markdown("---")
+            #st.write(f"**3. *Filtering Dataset by Prices < $75***:")
+            st.image("Images\White Background Landscape.jpg", width=49)
+            st.write(f"Mean Squared Error (***MSE***) ->", 160.01)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3869)
+            st.markdown("---")
+            #st.write(f"**4. *Filtering Dataset by Prices < $50***:")
+            st.image("Images\White Background Landscape.jpg", width=52)
+            st.write(f"Mean Squared Error (***MSE***) ->", 86.86)
+            st.write(f"Coefficient of Determination ($R^2$) ->", 0.3287)
+        
+    with tabml2:   # SVR
+        st.write(f"**1. *Original/Default***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 1421.25)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.2420)
+        st.markdown("---")
+        st.write(f"**2. *Applying VIF***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 1845.16)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.0160)
+        st.markdown("---")
+        st.write(f"**3. *Filtering Dataset by Prices < $75***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 146.10)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.4402)
+        st.markdown("---")
+        st.write(f"**4. *Filtering Dataset by Prices < $50***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 79.91)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.3824)
+        st.markdown("---")
+        st.warning(f"**WHAT A NIGHTMARE!!!**")
+        st.write(f"**Minimum** run for *Feature Selection* -> **110 mins**")
+        st.write(f"**Maximum** run for *Feature Selection* -> **900 mins**...and **COUNTING!**")
     
-        
+    with tabml3:   # RFR
+        st.write(f"**1. *Original/Default***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 1262.14)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.3269)
+        st.markdown("---")
+        st.write(f"**2. *Applying VIF***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 1774.61)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.0536)
+        st.markdown("---")
+        st.write(f"**3. *Filtering Dataset by Prices < $75***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 141.48)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.4579)
+        st.success(f"The option chosen for the ***Price Predictor***!!!")
+        st.markdown("---")
+        st.write(f"**4. *Filtering Dataset by Prices < $50***:")
+        st.write(f"Mean Squared Error (***MSE***) ->", 77.84)
+        st.write(f"Coefficient of Determination ($R^2$) ->", 0.3984)
 
-    with tabml3:
-        st.write("What a NIGHTMARE!!!")
-        
-        
-    
     with tabml4:
-        st.write("Let's predict an affordable wine's price:")
+        # Loading and preparing the dataset:
+        wines_dataset = wdc()
 
-        #st.button("Guess", on_click=lambda: predict())
+        # Applying dataset restrictions:
+        p_filter = 75
+        wines_filtered = wines_dataset[wines_dataset["price_usd"] <= p_filter]
+        iqr_filtered = np.percentile(wines_filtered["vintage"], 75) - np.percentile(wines_filtered["vintage"], 25)
+        lower_limit_filtered = np.percentile(wines_filtered["vintage"], 25) - 3 * iqr_filtered
+
+        wines_predictor_filtered = wines_filtered[wines_filtered["vintage"] >= lower_limit_filtered]
+
+        # Selecting necessary columns:
+        data = wines_predictor_filtered[["price_usd", "points", "wine_type", "avg_abv_%", "avg_serve_temp_c", "taste_dry-sweet", 
+                                         "taste_body", "taste_tannins", "taste_acidity", "vintage"]]
+
+        # Defining dependent and independent variables:
+        y = data["price_usd"]
+        X = data.drop(columns=["price_usd"])
+
+        # Splitting into numerical and categorical data:
+        X_num = X.select_dtypes(np.number)
+        X_cat = X.select_dtypes(object)
+
+        # Scaling numerical features:
+        scaler = MinMaxScaler().fit(X_num)
+        X_num_scaled = scaler.transform(X_num)
+
+        # Encoding categorical features:
+        X_cat_dummies = pd.get_dummies(X_cat, drop_first=True)
+
+        # Combining features:
+        X_final = np.concatenate((X_num_scaled, X_cat_dummies), axis=1)
+
+        # Training the model:
+        model = RandomForestRegressor(n_estimators=500, max_depth=10, min_samples_leaf=4, random_state=42)
+        model.fit(X_final, y)
+
+        # Streamlit UI:
+        #st.write("Let's predict an affordable winprice:")
+        #st.title("Wine Price Predictor")
+        st.write(f"Enter some wine characteristics to predict an **affordable** price:")
+
+        # User inputs:
+        points = st.number_input(f"**Points** (80 - 100)", min_value=80, max_value=100, value=90)
+        wine_type = st.selectbox(f"Wine **Type**", data["wine_type"].unique())
+        #avg_abv = st.selectbox("Average ABV %", [9, 10.75, 12.5, 14.25, 16, 21])
+        #avg_abv = st.checkbox("Average ABV %", value=False)
+        avg_abv = st.radio(f"Avg **ABV** (%)", [9, 10.75, 12.5, 14.25, 16, 21])
+        #avg_temp = st.selectbox("Average Serving Temperature (°C)", [5, 9.5, 13.5, 17.5])
+        #avg_temp = st.checkbox("Average Serving Temperature (°C)", value=False)
+        avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", [5, 9.5, 13.5, 17.5])
+        taste_dry_sweet = st.slider(f"Tasting **Dry-Sweet** (1 - 5)", min_value=1, max_value=5, value=2, step=1)
+        taste_body = st.slider(f"Tasting **Body** (1 - 5)", min_value=1, max_value=5, value=3, step=1)
+        taste_tannins = st.slider(f"Tasting **Tannins** (1 - 5)", min_value=1, max_value=5, value=4, step=1)
+        taste_acidity = st.slider(f"Tasting **Acidity** (1 - 5)", min_value=1, max_value=5, value=3, step=1)
+        #vintage = st.number_input("Vintage", min_value=1900, max_value=2024, value=2015)
+
+        # Automatically assigning the mode vintage from the dataset:
+        mode_vintage = int(data["vintage"].mode()[0])
+
+        # Preparing input data for prediction:
+        user_input = pd.DataFrame([[points, wine_type, avg_abv, avg_temp, taste_dry_sweet, 
+                                    taste_body, taste_tannins, taste_acidity, mode_vintage]], 
+                                    columns=X.columns)
+
+        # Processing input:
+        user_input_num = scaler.transform(user_input.select_dtypes(np.number))
+        user_input_cat = pd.get_dummies(user_input.select_dtypes(object), drop_first=True)
+
+        # Aligning columns:
+        user_input_final = np.concatenate((user_input_num, user_input_cat.reindex(columns=X_cat_dummies.columns, fill_value=0)), axis=1)
+
+        # Predicting price:
+        if st.button("Predict"):
+            predicted_price = model.predict(user_input_final)[0]
+            price_range_low = predicted_price * 0.9
+            price_range_high = predicted_price * 1.1
+            st.success(f"Price Range ($): **{price_range_low:.2f}** to **{price_range_high:.2f}**")
 
 # Finishing the Presentation:
 else:     
