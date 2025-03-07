@@ -3,11 +3,9 @@ warnings.filterwarnings("ignore")
 
 import streamlit as st
 import streamlit.components.v1 as components
-from PIL import Image
 import pandas as pd
 import numpy as np
-#import matplotlib.pyplot as plt
-#import os
+
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import MinMaxScaler
 
