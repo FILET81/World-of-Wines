@@ -21,7 +21,7 @@ with st.sidebar:
 # Providing some info about the world of wines:
 if selection=="Introduction":     
     st.header("Let's first get some interesting info about this amazing world! :confetti_ball:")    
-    st.image("Images\Vineyards-1.jpg", caption="Vineyards somewhere in the World", width=950)  
+    st.image("Images/Vineyards-1.jpg", caption="Vineyards somewhere in the World", width=950)  
     st.subheader("Did you know that?:")
     st.markdown("- Wine production dates back to at least **6000 BC** in **Georgia**, **5000 BC** in **Iran** or **4100 BC** in **Armenia**.")
     st.markdown("- Ancient civilizations like the **Egyptians**, **Greeks** and **Romans** further developed **winemaking techniques**.")
@@ -30,7 +30,7 @@ if selection=="Introduction":
     st.markdown("- The **ABV** -*Alcohol by Volume*- of **regular wine** goes from **5%** to **16%**.")
     st.markdown("- There are currently over **10.000 different wine grape -*Vitis Vinifera*- varieties** worldwide.")
     st.markdown("- Best grape's **growing regions** for wine production are placed in **latitudes** between **30°** and **50°** of both hemispheres.")
-    st.image("Images\Best Regions for Grape Growing.jpg", caption="The Wine Belt", width=950)
+    st.image("Images/Best Regions for Grape Growing.jpg", caption="The Wine Belt", width=950)
     st.markdown("- There are **18 noble grapes' varieties** -> '*planted **across the Globe**, and producing **high-quality** wines'*:")
     st.markdown("**Red** (lightest to darkest) -> ***Pinot Noir***, *Grenache*, ***Merlot***, *Sangiovese*, *Nebbiolo*, *Tempranillo*, ***Cabernet Sauvignon***, ***Syrah*** and *Malbec*.")
     st.markdown("**White** (lightest to richest) -> *Pinot Gris*, ***Riesling***, ***Sauvignon Blanc***, *Chenin Blanc*, *Moscato*, *Gewürztraminer*, *Sémillon*, *Viognier* and ***Chardonnay***.")
@@ -92,7 +92,7 @@ elif selection=="Wine Searcher":
 
         # Coding Streamlit:
         st.header("Let's look for a tasty wine! :face_with_monocle:")
-        st.image("Images\Vineyards-6.jpg", caption="Vineyards somewhere in the World", width=900) 
+        st.image("Images/Vineyards-6.jpg", caption="Vineyards somewhere in the World", width=900) 
 
         # Determining all other filters:
         # Selecting countries with option "All" included:
@@ -187,7 +187,7 @@ elif selection=="Wine Searcher":
                                       
                         with col2:
                             st.header("Tasting Notes")
-                            st.image("Images\White Background Landscape.jpg", width=30)
+                            st.image("Images/White Background Landscape.jpg", width=30)
                             st.write(f"**Rating Sweetness:** {row["taste_dry-sweet"]}")
                             st.write(f"**Rating Body:** {row["taste_body"]}")
                             st.write(f"**Rating Tannins:** {row["taste_tannins"]}")
@@ -208,7 +208,7 @@ elif selection=="Wine Searcher":
 # Displaying a Machine Learning model:
 elif selection=="Price Predictor":     
     st.header("Let's try to predict some prices! :gear:")
-    st.image("Images\Vineyards-5.jpg", caption="Vineyards somewhere in the World", width=900)
+    st.image("Images/Vineyards-5.jpg", caption="Vineyards somewhere in the World", width=900)
     
     #Tabs:
     tabml1, tabml2, tabml3, tabml4=st.tabs(["Linear Regression", "Support Vector Regressor", "Random Forest Regressor", "Price Predictor"])
@@ -235,44 +235,44 @@ elif selection=="Price Predictor":
         with colml2:
             st.write(f"**Rigde Variant (+ .GridSearch())**")
             #st.write(f"**1. *Original/Default***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 1499.29)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.2004)
             st.markdown("---")
             #st.write(f"**2. *Applying VIF***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 1813.55)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.0328)
             st.markdown("---")
             #st.write(f"**3. *Filtering Dataset by Prices <= $75***:")
-            st.image("Images\White Background Landscape.jpg", width=49)
+            st.image("Images/White Background Landscape.jpg", width=49)
             st.write(f"Mean Squared Error (***MSE***) ->", 160.01)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.3869)
             st.markdown("---")
             #st.write(f"**4. *Filtering Dataset by Prices <= $50***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 86.86)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.3287)
         
         with colml3:
             st.write(f"**Lasso Variant (+ .GridSearch())**")
             #st.write(f"**1. *Original/Default***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 1499.28)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.2004)
             st.markdown("---")
             #st.write(f"**2. *Applying VIF***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 1813.55)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.0328)
             st.markdown("---")
             #st.write(f"**3. *Filtering Dataset by Prices <= $75***:")
-            st.image("Images\White Background Landscape.jpg", width=49)
+            st.image("Images/White Background Landscape.jpg", width=49)
             st.write(f"Mean Squared Error (***MSE***) ->", 160.01)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.3869)
             st.markdown("---")
             #st.write(f"**4. *Filtering Dataset by Prices <= $50***:")
-            st.image("Images\White Background Landscape.jpg", width=52)
+            st.image("Images/White Background Landscape.jpg", width=52)
             st.write(f"Mean Squared Error (***MSE***) ->", 86.86)
             st.write(f"Coefficient of Determination ($R^2$) ->", 0.3287)
         
@@ -420,4 +420,4 @@ else:
     st.markdown("And many others...")
     st.markdown("")
     st.subheader("THANKS FOR LISTENING!!!")
-    st.image("Images\Vineyards-7.jpg", caption="Vineyards somewhere in the World", width=950)
+    st.image("Images/Vineyards-7.jpg", caption="Vineyards somewhere in the World", width=950)
