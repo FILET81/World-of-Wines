@@ -403,6 +403,8 @@ elif selection=="Price Predictor":
         # Aligning columns:
         user_input_final = np.concatenate((user_input_num, user_input_cat.reindex(columns=X_cat_dummies.columns, fill_value=0)), axis=1)
 
+### ‼ TODO LO DE ARRIBA SE HACE APARTE. Se guarda con .save, y se carga con .load
+
         # Predicting price:
         if st.button("Predict"):
             predicted_price = model.predict(user_input_final)[0]
