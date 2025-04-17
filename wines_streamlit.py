@@ -6,8 +6,10 @@ import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
 
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import MinMaxScaler
+import pickle
+
+#from sklearn.ensemble import RandomForestRegressor
+#from sklearn.preprocessing import MinMaxScaler
 
 from WinesDatasetCleaning import wine_dataset_cleaning as wdc
 
@@ -320,47 +322,15 @@ elif selection=="Price Predictor":
         st.write(f"**Maximum** run for *Feature Selection* -> **900 mins**...and **COUNTING!**")
 
     with tabml4:
-        # Loading and preparing the dataset:
-        wines_dataset = wdc()
+        # Load model and tools
+        with open("wine_model.pkl", "rb") as pprfr:
+            saved = pickle.load(pprfr)
 
-        # Applying dataset restrictions:
-        p_filter = 75
-        wines_filtered = wines_dataset[wines_dataset["price_usd"] <= p_filter]
-        iqr_filtered = np.percentile(wines_filtered["vintage"], 75) - np.percentile(wines_filtered["vintage"], 25)
-        lower_limit_filtered = np.percentile(wines_filtered["vintage"], 25) - 3 * iqr_filtered
-
-        wines_predictor_filtered = wines_filtered[wines_filtered["vintage"] >= lower_limit_filtered]
-
-        # Selecting necessary columns:
-        data = wines_predictor_filtered[["price_usd", "points", "wine_type", "avg_abv_%", "avg_serve_temp_c", "taste_dry-sweet", 
-                                         "taste_body", "taste_tannins", "taste_acidity", "vintage"]]
-
-        # Defining dependent and independent variables:
-        y = data["price_usd"]
-        X = data.drop(columns=["price_usd"])
-
-        # Splitting into numerical and categorical data:
-        X_num = X.select_dtypes(np.number)
-        X_cat = X.select_dtypes(object)
-
-        # Scaling numerical features:
-        scaler = MinMaxScaler().fit(X_num)
-        X_num_scaled = scaler.transform(X_num)
-
-        # Encoding categorical features:
-        X_cat_dummies = pd.get_dummies(X_cat, drop_first=True)
-
-        # Combining features:
-        X_final = np.concatenate((X_num_scaled, X_cat_dummies), axis=1)
-
-        # Training the model:
-        model = RandomForestRegressor(n_estimators=500, max_depth=10, min_samples_leaf=4, random_state=42)
-        model.fit(X_final, y)
-
-        # Streamlit UI:
-        #st.write("Let's predict an affordable winprice:")
-        #st.title("Wine Price Predictor")
-        st.write(f"Enter some wine characteristics to predict an **affordable** price:")
+        model = saved["model"]
+        scaler = saved["scaler"]
+        cat_columns = saved["cat_columns"]
+        features = saved["features"]
+        mode_vintage = saved["mode_vintage"]
 
         # Defining dynamic mapping for "avg_abv" and "avg_temp" below:
         wine_options = {
@@ -369,41 +339,32 @@ elif selection=="Price Predictor":
             "Rosé": {"avg_abv": [12.5], "avg_temp": [9.5]},
             "Sparkling": {"avg_abv": [12.5], "avg_temp": [9.5]}
             }
+        
+        # Streamlit UI:
+        st.write(f"Enter some wine characteristics to predict an **affordable** price:")
 
         # User inputs:
         points = st.number_input(f"**Points** (80 - 100)", min_value=80, max_value=100, value=90)
-        #wine_type = st.selectbox(f"Wine **Type**", data["wine_type"].unique())
         wine_type = st.selectbox(f"Wine **Type**", wine_options.keys())
-        #avg_abv = st.selectbox("Average ABV %", [9, 10.75, 12.5, 14.25, 16, 21])
-        #avg_abv = st.checkbox("Average ABV %", value=False)
-        #avg_abv = st.radio(f"Avg **ABV** (%)", [9, 10.75, 12.5, 14.25, 16, 21])
         avg_abv = st.radio(f"Avg **ABV** (%)", wine_options[wine_type]["avg_abv"])
-        #avg_temp = st.selectbox("Average Serving Temperature (°C)", [5, 9.5, 13.5, 17.5])
-        #avg_temp = st.checkbox("Average Serving Temperature (°C)", value=False)
-        #avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", [5, 9.5, 13.5, 17.5])
         avg_temp = st.radio(f"Avg Serving **Temperature** (°C)", wine_options[wine_type]["avg_temp"])
         taste_dry_sweet = st.slider(f"Tasting **Dry-Sweet** (1 - 5)", min_value=1, max_value=5, value=2, step=1)
         taste_body = st.slider(f"Tasting **Body** (1 - 5)", min_value=1, max_value=5, value=3, step=1)
         taste_tannins = st.slider(f"Tasting **Tannins** (1 - 5)", min_value=1, max_value=5, value=4, step=1)
         taste_acidity = st.slider(f"Tasting **Acidity** (1 - 5)", min_value=1, max_value=5, value=3, step=1)
-        #vintage = st.number_input("Vintage", min_value=1900, max_value=2024, value=2015)
-
-        # Automatically assigning the mode vintage from the dataset:
-        mode_vintage = int(data["vintage"].mode()[0])
 
         # Preparing input data for prediction:
         user_input = pd.DataFrame([[points, wine_type, avg_abv, avg_temp, taste_dry_sweet, 
                                     taste_body, taste_tannins, taste_acidity, mode_vintage]], 
-                                    columns=X.columns)
+                                    columns=features)
 
         # Processing input:
         user_input_num = scaler.transform(user_input.select_dtypes(np.number))
         user_input_cat = pd.get_dummies(user_input.select_dtypes(object), drop_first=True)
+        user_input_cat = user_input_cat.reindex(columns=cat_columns, fill_value=0)
 
         # Aligning columns:
-        user_input_final = np.concatenate((user_input_num, user_input_cat.reindex(columns=X_cat_dummies.columns, fill_value=0)), axis=1)
-
-### ‼ TODO LO DE ARRIBA SE HACE APARTE. Se guarda con .save, y se carga con .load
+        user_input_final = np.concatenate((user_input_num, user_input_cat), axis=1)
 
         # Predicting price:
         if st.button("Predict"):
