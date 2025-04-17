@@ -82,7 +82,11 @@ elif selection=="Wine Searcher":
     # Displaying the wine Searcher out of the treated DataFrame:
     def wine_searcher():
         # Loading the dataset:
-        wines_dataset = wdc()
+        @st.cache_data
+        def load_wine_data():
+            return wdc()
+
+        wines_dataset = load_wine_data()
         
         # Getting unique values:
         w_country = sorted(wines_dataset["country"].unique().tolist(), reverse=False)
