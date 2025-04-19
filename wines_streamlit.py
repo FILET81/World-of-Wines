@@ -163,7 +163,7 @@ elif selection=="Wine Searcher":
             wines_found = wines_found.sort_values(by=["points", "price_usd", "vintage"], ascending=[False, False, False])
 
             displayed_wines = set()
-            #counter = 0
+            counter = 0
             for i, (_,row) in enumerate(wines_found.head(15).iterrows(), start=1):
                 wine_key = (row["title_new"], row["vintage"], row["apellation"])
                 if wine_key in displayed_wines:
@@ -173,7 +173,7 @@ elif selection=="Wine Searcher":
                 with st.container():
                     col1, col2 = st.columns(2)
                     with col1:                    
-                        #counter += 1
+                        counter += 1
                         st.header(f"{i}. {row["title_new"]}")
                         st.image(flags_dict.get(row["country"], ""), width=30)
                         st.write(f"**Country:** {row["country"]}")
