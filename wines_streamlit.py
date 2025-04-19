@@ -21,9 +21,10 @@ st.title("***World of Wines*** :wine_glass:")
 
 with st.sidebar:
     selection = option_menu(
-        menu_title=None,
+        menu_title="MENU",
         options=["Introduction", "Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"],
-        incons=["file-text", "bar-chart", "search", "grear", "cast"],
+        incons=["file-text", "bar-chart", "search", "grear", "droplet"],
+        menu_icon="cast",
         default_index=0
     )
     
