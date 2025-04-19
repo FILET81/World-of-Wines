@@ -23,7 +23,7 @@ with st.sidebar:
     selection = option_menu(
         menu_title="MENU",
         options=["Introduction", "Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"],
-        incons=["file-text", "bar-chart", "search", "grear", "droplet"],
+        icons=["file-text", "bar-chart", "search", "grear", "droplet"],
         menu_icon="cast",
         default_index=0
     )
