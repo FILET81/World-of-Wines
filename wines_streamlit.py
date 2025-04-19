@@ -3,6 +3,7 @@ warnings.filterwarnings("ignore")
 
 import streamlit as st
 import streamlit.components.v1 as components
+from streamlit_option_menu import option_menu
 import pandas as pd
 import numpy as np
 
@@ -19,7 +20,14 @@ st.set_page_config(page_title="World of Wines", page_icon=":wine_glass:", layout
 st.title("***World of Wines*** :wine_glass:")
 
 with st.sidebar:
-    selection=st.radio("Menu:", ["Introduction","Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"])
+    selection = option_menu(
+        menu_title=None,
+        options=["Introduction", "Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"],
+        incons=["file-text", "bar-chart", "search", "grear", "cast"],
+        default_index=0
+    )
+    
+#    st.radio("Menu:", ["Introduction","Vizzes", "Wine Searcher", "Price Predictor", "Bibliography"])
 
 # Providing some info about the world of wines:
 if selection=="Introduction":     
