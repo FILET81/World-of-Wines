@@ -15,7 +15,7 @@ import pickle
 
 from WinesDatasetCleaning import wine_dataset_cleaning as wdc
 
-st.set_page_config(page_title="World of Wines", page_icon=":wine_glass:", layout="wide")
+st.set_page_config(page_title="World of Wines", page_icon=":wine_glass:", layout="wide", initial_sidebar_state="auto")
                    
 st.title("***World of Wines*** :wine_glass:")
 
@@ -379,7 +379,7 @@ elif selection=="Price Predictor":
             st.success(f"Price Range ($): **{price_range_low:.2f}** to **{price_range_high:.2f}**")
 
 # Finishing the Presentation:
-else:     
+elif selection=="Bibliography":     
     st.subheader("Main Data Sources:")
     st.markdown("https://mavenanalytics.io/")
     st.markdown("https://winefolly.com/")
